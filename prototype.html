@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Прототип: вложенность + дистанция + аудио</title>
+<style>
+  :root{
+    --bg:#faf6ee; --card:#ffffff; --ink:#2b2620; --ink-soft:#6b6255;
+    --line:#e8e0d0; --gold:#b5842a; --gold-soft:#f4e6c8;
+    --sage:#5c7a52; --sage-soft:#e6ede0; --brick:#a8452f; --brick-soft:#f3e0da;
+    --shadow:0 1px 3px rgba(43,38,32,.08), 0 1px 2px rgba(43,38,32,.06);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.5;padding:16px 14px 60px;}
+  .note{background:var(--gold-soft);border-left:3px solid var(--gold);padding:10px 12px;border-radius:8px;font-size:.82rem;margin-bottom:20px;}
+
+  /* stop card = populated point, contains nested attractions */
+  .stop{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow); margin-bottom:16px; overflow:hidden;
+  }
+  .stop-head{padding:14px 14px 10px; display:flex; align-items:center; gap:10px;}
+  .stop-icon{width:32px;height:32px;border-radius:9px;background:var(--gold-soft);display:flex;align-items:center;justify-content:center;font-size:1.05rem;flex:0 0 auto;}
+  .stop-title{font-weight:700; font-size:1.05rem; flex:1 1 auto;}
+  .km-badge{
+    flex:0 0 auto; background:var(--ink); color:#fff; font-size:.72rem; font-weight:700;
+    padding:4px 9px; border-radius:999px; white-space:nowrap;
+  }
+  .stop-body{padding:0 14px 14px;}
+  .stop-body h4{font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--gold);margin:10px 0 4px;}
+  .stop-body p{margin:0 0 4px;font-size:.9rem;}
+
+  /* audio player */
+  .player{
+    background:#fbf3e2; border:1px solid var(--gold-soft); border-radius:10px;
+    padding:10px 12px; margin:10px 0; display:flex; align-items:center; gap:10px;
+  }
+  .player button.playpause{
+    flex:0 0 auto; width:38px;height:38px;border-radius:50%;border:none;background:var(--gold);
+    color:#fff;font-size:1rem;cursor:pointer;
+  }
+  .player .meta{flex:1 1 auto;font-size:.78rem;color:var(--ink-soft);}
+  .player .meta b{color:var(--ink);display:block;font-size:.84rem;}
+  .player .bar{height:4px;background:var(--line);border-radius:2px;margin-top:5px;overflow:hidden;}
+  .player .bar .fill{height:100%;background:var(--gold);width:0%;}
+
+  /* nested attraction */
+  .nested{
+    margin:10px 0 0 14px; padding:10px 12px; border-left:3px solid var(--sage);
+    background:var(--sage-soft); border-radius:0 10px 10px 0;
+  }
+  .nested.landmark{border-left-color:var(--brick); background:var(--brick-soft);}
+  .nested .n-title{font-weight:700;font-size:.92rem;margin-bottom:4px;display:flex;align-items:center;gap:6px;}
+  .nested p{font-size:.85rem;margin:0 0 4px;}
+
+  /* chapter jump list */
+  .chapters{display:flex;gap:6px;overflow-x:auto;margin:8px 0 14px;padding-bottom:2px;}
+  .chapters button{
+    flex:0 0 auto;font-size:.74rem;font-weight:600;background:var(--card);border:1px solid var(--line);
+    padding:6px 11px;border-radius:999px;color:var(--ink);cursor:pointer;
+  }
+  .chapters button.active{background:var(--gold);color:#fff;border-color:var(--gold);}
+</style>
+</head>
+<body>
+
+<div class="note">
+  <b>Прототип трёх правок.</b> 1) Достопримечательности вложены внутрь карточки населённого пункта, единая цепочка по ходу движения. 2) Бейдж «км от старта». 3) Плеер-диалог двух ведущих вместо текста, с переключением между главами (точками маршрута).
+</div>
+
+<div class="chapters" id="chapters">
+  <button class="active" data-chapter="kislovodsk">Кисловодск</button>
+  <button data-chapter="gora-koltso">Гора Кольцо</button>
+</div>
+
+<div class="stop">
+  <div class="stop-head">
+    <span class="stop-icon">🏘️</span>
+    <span class="stop-title">Кисловодск</span>
+    <span class="km-badge">0 км от старта</span>
+  </div>
+  <div class="stop-body">
+    <div class="player" data-playlist="kislovodsk">
+      <button class="playpause" data-action="toggle">▶</button>
+      <div class="meta">
+        <b id="kislovodsk-label">Диалог: Кисловодск (1/11)</b>
+        <div class="bar"><div class="fill" id="kislovodsk-fill"></div></div>
+      </div>
+    </div>
+
+    <h4>О месте</h4>
+    <p>Основан 9 сентября 1803 г. как крепость у источника нарзана. Бывали Пушкин, Лермонтов, Толстой, Шаляпин.</p>
+
+    <div class="nested">
+      <div class="n-title">🌿 Гора Кольцо</div>
+      <p class="card-meta">видна с трассы, ~1 км от съезда</p>
+      <div class="player" data-playlist="gora-koltso">
+        <button class="playpause" data-action="toggle">▶</button>
+        <div class="meta">
+          <b id="gora-koltso-label">Диалог: Гора Кольцо (1/5)</b>
+          <div class="bar"><div class="fill" id="gora-koltso-fill"></div></div>
+        </div>
+      </div>
+      <p>Воспета Лермонтовым в «Герое нашего времени» — естественная арка в песчанике.</p>
+    </div>
+
+    <div class="nested">
+      <div class="n-title">🌿 Медовые водопады</div>
+      <p class="card-meta">~25 км от трассы, КЧР · аудио — на следующем шаге</p>
+      <p>Пять водопадов на Аликоновке, легенда о диких пчёлах в скалах.</p>
+    </div>
+
+    <div class="nested landmark">
+      <div class="n-title">🏛️ Нарзанная галерея</div>
+      <p class="card-meta">неоготика, 1848–1853 · аудио — на следующем шаге</p>
+      <p>Архитектор Самуил Уптон, форма замочной скважины, приглашён князем Воронцовым.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const playlists = {
+    "kislovodsk": { dir: "audio/kislovodsk", count: 11 },
+    "gora-koltso": { dir: "audio/gora-koltso", count: 5 }
+  };
+
+  const state = {};
+  Object.keys(playlists).forEach(key => {
+    state[key] = { idx: 0, playing: false, audio: new Audio() };
+  });
+
+  function srcFor(key, idx) {
+    const n = String(idx + 1).padStart(2, '0');
+    return `${playlists[key].dir}/${n}.m4a`;
+  }
+
+  function updateLabel(key) {
+    const s = state[key];
+    document.getElementById(`${key}-label`).textContent =
+      `Диалог: ${key === 'kislovodsk' ? 'Кисловодск' : 'Гора Кольцо'} (${s.idx + 1}/${playlists[key].count})`;
+  }
+
+  function play(key) {
+    const s = state[key];
+    s.audio.src = srcFor(key, s.idx);
+    s.audio.play();
+    s.playing = true;
+    document.querySelector(`[data-playlist="${key}"] .playpause`).textContent = '⏸';
+    updateLabel(key);
+  }
+
+  function pause(key) {
+    const s = state[key];
+    s.audio.pause();
+    s.playing = false;
+    document.querySelector(`[data-playlist="${key}"] .playpause`).textContent = '▶';
+  }
+
+  Object.keys(playlists).forEach(key => {
+    const s = state[key];
+    s.audio.addEventListener('timeupdate', () => {
+      if (s.audio.duration) {
+        document.getElementById(`${key}-fill`).style.width =
+          (s.audio.currentTime / s.audio.duration * 100) + '%';
+      }
+    });
+    s.audio.addEventListener('ended', () => {
+      s.idx++;
+      if (s.idx < playlists[key].count) {
+        play(key);
+      } else {
+        s.idx = 0;
+        pause(key);
+        updateLabel(key);
+        document.getElementById(`${key}-fill`).style.width = '0%';
+      }
+    });
+
+    document.querySelector(`[data-playlist="${key}"] .playpause`).addEventListener('click', () => {
+      if (s.playing) { pause(key); } else { play(key); }
+    });
+  });
+
+  document.querySelectorAll('#chapters button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#chapters button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelector(`[data-chapter="${btn.dataset.chapter}"]`);
+      document.querySelector(`.stop`).scrollIntoView({ behavior: 'smooth', block: btn.dataset.chapter === 'kislovodsk' ? 'start' : 'center' });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
