@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<title>Прототип: вложенность + дистанция + аудио</title>
+<title>Прототип: вложенность + дистанция + подкаст-плеер</title>
 <style>
   :root{
     --bg:#faf6ee; --card:#ffffff; --ink:#2b2620; --ink-soft:#6b6255;
@@ -13,10 +13,9 @@
     --radius:14px;
   }
   *{box-sizing:border-box;}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.5;padding:16px 14px 60px;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.5;padding:16px 14px 110px;}
   .note{background:var(--gold-soft);border-left:3px solid var(--gold);padding:10px 12px;border-radius:8px;font-size:.82rem;margin-bottom:20px;}
 
-  /* stop card = populated point, contains nested attractions */
   .stop{
     background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
     box-shadow:var(--shadow); margin-bottom:16px; overflow:hidden;
@@ -32,21 +31,13 @@
   .stop-body h4{font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--gold);margin:10px 0 4px;}
   .stop-body p{margin:0 0 4px;font-size:.9rem;}
 
-  /* audio player */
-  .player{
-    background:#fbf3e2; border:1px solid var(--gold-soft); border-radius:10px;
-    padding:10px 12px; margin:10px 0; display:flex; align-items:center; gap:10px;
+  .listen-btn{
+    display:inline-flex; align-items:center; gap:6px; background:var(--gold-soft);
+    border:1px solid var(--gold); color:var(--ink); font-size:.78rem; font-weight:700;
+    padding:6px 12px; border-radius:999px; cursor:pointer; margin:8px 0 4px;
   }
-  .player button.playpause{
-    flex:0 0 auto; width:38px;height:38px;border-radius:50%;border:none;background:var(--gold);
-    color:#fff;font-size:1rem;cursor:pointer;
-  }
-  .player .meta{flex:1 1 auto;font-size:.78rem;color:var(--ink-soft);}
-  .player .meta b{color:var(--ink);display:block;font-size:.84rem;}
-  .player .bar{height:4px;background:var(--line);border-radius:2px;margin-top:5px;overflow:hidden;}
-  .player .bar .fill{height:100%;background:var(--gold);width:0%;}
+  .listen-btn.playing{background:var(--gold); color:#fff;}
 
-  /* nested attraction */
   .nested{
     margin:10px 0 0 14px; padding:10px 12px; border-left:3px solid var(--sage);
     background:var(--sage-soft); border-radius:0 10px 10px 0;
@@ -54,25 +45,33 @@
   .nested.landmark{border-left-color:var(--brick); background:var(--brick-soft);}
   .nested .n-title{font-weight:700;font-size:.92rem;margin-bottom:4px;display:flex;align-items:center;gap:6px;}
   .nested p{font-size:.85rem;margin:0 0 4px;}
+  .nested .listen-btn{background:#fff;}
 
-  /* chapter jump list */
-  .chapters{display:flex;gap:6px;overflow-x:auto;margin:8px 0 14px;padding-bottom:2px;}
-  .chapters button{
-    flex:0 0 auto;font-size:.74rem;font-weight:600;background:var(--card);border:1px solid var(--line);
-    padding:6px 11px;border-radius:999px;color:var(--ink);cursor:pointer;
+  /* global sticky podcast player */
+  .podcast-bar{
+    position:fixed; left:0; right:0; bottom:0; z-index:100;
+    background:#2b2620; color:#f5efe0; padding:10px 14px 14px;
+    box-shadow:0 -2px 10px rgba(0,0,0,.15);
   }
-  .chapters button.active{background:var(--gold);color:#fff;border-color:var(--gold);}
+  .podcast-bar .track-title{font-size:.8rem; font-weight:700; margin-bottom:2px;}
+  .podcast-bar .track-sub{font-size:.7rem; color:#cfc4ac; margin-bottom:8px;}
+  .podcast-bar .bar{height:4px;background:#4a4033;border-radius:2px;overflow:hidden;margin-bottom:10px;cursor:pointer;}
+  .podcast-bar .bar .fill{height:100%;background:var(--gold);width:0%;}
+  .podcast-bar .controls{display:flex;align-items:center;justify-content:center;gap:22px;}
+  .podcast-bar button{
+    background:none;border:none;color:#f5efe0;font-size:1.1rem;cursor:pointer;
+    width:38px;height:38px;display:flex;align-items:center;justify-content:center;
+  }
+  .podcast-bar button.play{
+    background:var(--gold); color:#2b2620; border-radius:50%; width:46px;height:46px;font-size:1.3rem;
+  }
+  .podcast-bar button:disabled{opacity:.3;}
 </style>
 </head>
 <body>
 
 <div class="note">
-  <b>Прототип трёх правок.</b> 1) Достопримечательности вложены внутрь карточки населённого пункта, единая цепочка по ходу движения. 2) Бейдж «км от старта». 3) Плеер-диалог двух ведущих вместо текста, с переключением между главами (точками маршрута).
-</div>
-
-<div class="chapters" id="chapters">
-  <button class="active" data-chapter="kislovodsk">Кисловодск</button>
-  <button data-chapter="gora-koltso">Гора Кольцо</button>
+  <b>Прототип v2.</b> Убран диалог — теперь рассказ одним голосом (Milena). Общий плеер снизу как в подкаст-приложении: play/пауза, ⏪10с, ⏮/⏭ между точками. Кнопка «слушать» на карточке запускает нужную главу.
 </div>
 
 <div class="stop">
@@ -82,13 +81,7 @@
     <span class="km-badge">0 км от старта</span>
   </div>
   <div class="stop-body">
-    <div class="player" data-playlist="kislovodsk">
-      <button class="playpause" data-action="toggle">▶</button>
-      <div class="meta">
-        <b id="kislovodsk-label">Диалог: Кисловодск (1/11)</b>
-        <div class="bar"><div class="fill" id="kislovodsk-fill"></div></div>
-      </div>
-    </div>
+    <button class="listen-btn" data-chapter="kislovodsk">🎧 Слушать</button>
 
     <h4>О месте</h4>
     <p>Основан 9 сентября 1803 г. как крепость у источника нарзана. Бывали Пушкин, Лермонтов, Толстой, Шаляпин.</p>
@@ -96,13 +89,7 @@
     <div class="nested">
       <div class="n-title">🌿 Гора Кольцо</div>
       <p class="card-meta">видна с трассы, ~1 км от съезда</p>
-      <div class="player" data-playlist="gora-koltso">
-        <button class="playpause" data-action="toggle">▶</button>
-        <div class="meta">
-          <b id="gora-koltso-label">Диалог: Гора Кольцо (1/5)</b>
-          <div class="bar"><div class="fill" id="gora-koltso-fill"></div></div>
-        </div>
-      </div>
+      <button class="listen-btn" data-chapter="gora-koltso">🎧 Слушать</button>
       <p>Воспета Лермонтовым в «Герое нашего времени» — естественная арка в песчанике.</p>
     </div>
 
@@ -120,76 +107,89 @@
   </div>
 </div>
 
+<!-- global podcast player -->
+<div class="podcast-bar">
+  <div class="track-title" id="track-title">Ничего не выбрано</div>
+  <div class="track-sub" id="track-sub">нажмите «слушать» на любой карточке</div>
+  <div class="bar" id="seek-bar"><div class="fill" id="seek-fill"></div></div>
+  <div class="controls">
+    <button id="btn-prev" title="Предыдущая точка">⏮</button>
+    <button id="btn-back" title="Назад 10 сек">⏪10</button>
+    <button id="btn-play" class="play" title="Play/Pause">▶</button>
+    <button id="btn-next" title="Следующая точка">⏭</button>
+  </div>
+</div>
+
 <script>
 (() => {
-  const playlists = {
-    "kislovodsk": { dir: "audio/kislovodsk", count: 11 },
-    "gora-koltso": { dir: "audio/gora-koltso", count: 5 }
+  // порядок глав = порядок точек по маршруту (вложенные объекты идут сразу после своей точки)
+  const chapters = [
+    { key: "kislovodsk", title: "Кисловодск", file: "audio/kislovodsk.m4a" },
+    { key: "gora-koltso", title: "Гора Кольцо", file: "audio/gora-koltso.m4a" }
+  ];
+
+  const audio = new Audio();
+  let currentIdx = -1;
+
+  const els = {
+    title: document.getElementById('track-title'),
+    sub: document.getElementById('track-sub'),
+    fill: document.getElementById('seek-fill'),
+    bar: document.getElementById('seek-bar'),
+    play: document.getElementById('btn-play'),
+    prev: document.getElementById('btn-prev'),
+    next: document.getElementById('btn-next'),
+    back: document.getElementById('btn-back'),
   };
 
-  const state = {};
-  Object.keys(playlists).forEach(key => {
-    state[key] = { idx: 0, playing: false, audio: new Audio() };
+  function setActiveButtons() {
+    document.querySelectorAll('.listen-btn').forEach(b => {
+      b.classList.toggle('playing', chapters[currentIdx] && b.dataset.chapter === chapters[currentIdx].key);
+    });
+  }
+
+  function loadChapter(idx, autoplay = true) {
+    if (idx < 0 || idx >= chapters.length) return;
+    currentIdx = idx;
+    const ch = chapters[idx];
+    audio.src = ch.file;
+    els.title.textContent = ch.title;
+    els.sub.textContent = `${idx + 1} / ${chapters.length}`;
+    els.fill.style.width = '0%';
+    setActiveButtons();
+    if (autoplay) audio.play();
+    els.play.textContent = autoplay ? '⏸' : '▶';
+    els.prev.disabled = idx === 0;
+    els.next.disabled = idx === chapters.length - 1;
+  }
+
+  audio.addEventListener('timeupdate', () => {
+    if (audio.duration) els.fill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+  });
+  audio.addEventListener('ended', () => {
+    if (currentIdx < chapters.length - 1) loadChapter(currentIdx + 1, true);
+    else els.play.textContent = '▶';
   });
 
-  function srcFor(key, idx) {
-    const n = String(idx + 1).padStart(2, '0');
-    return `${playlists[key].dir}/${n}.m4a`;
-  }
-
-  function updateLabel(key) {
-    const s = state[key];
-    document.getElementById(`${key}-label`).textContent =
-      `Диалог: ${key === 'kislovodsk' ? 'Кисловодск' : 'Гора Кольцо'} (${s.idx + 1}/${playlists[key].count})`;
-  }
-
-  function play(key) {
-    const s = state[key];
-    s.audio.src = srcFor(key, s.idx);
-    s.audio.play();
-    s.playing = true;
-    document.querySelector(`[data-playlist="${key}"] .playpause`).textContent = '⏸';
-    updateLabel(key);
-  }
-
-  function pause(key) {
-    const s = state[key];
-    s.audio.pause();
-    s.playing = false;
-    document.querySelector(`[data-playlist="${key}"] .playpause`).textContent = '▶';
-  }
-
-  Object.keys(playlists).forEach(key => {
-    const s = state[key];
-    s.audio.addEventListener('timeupdate', () => {
-      if (s.audio.duration) {
-        document.getElementById(`${key}-fill`).style.width =
-          (s.audio.currentTime / s.audio.duration * 100) + '%';
-      }
-    });
-    s.audio.addEventListener('ended', () => {
-      s.idx++;
-      if (s.idx < playlists[key].count) {
-        play(key);
-      } else {
-        s.idx = 0;
-        pause(key);
-        updateLabel(key);
-        document.getElementById(`${key}-fill`).style.width = '0%';
-      }
-    });
-
-    document.querySelector(`[data-playlist="${key}"] .playpause`).addEventListener('click', () => {
-      if (s.playing) { pause(key); } else { play(key); }
-    });
+  els.play.addEventListener('click', () => {
+    if (currentIdx === -1) { loadChapter(0, true); return; }
+    if (audio.paused) { audio.play(); els.play.textContent = '⏸'; }
+    else { audio.pause(); els.play.textContent = '▶'; }
+  });
+  els.prev.addEventListener('click', () => loadChapter(currentIdx - 1, true));
+  els.next.addEventListener('click', () => loadChapter(currentIdx + 1, true));
+  els.back.addEventListener('click', () => { audio.currentTime = Math.max(0, audio.currentTime - 10); });
+  els.bar.addEventListener('click', (e) => {
+    if (!audio.duration) return;
+    const rect = els.bar.getBoundingClientRect();
+    const ratio = (e.clientX - rect.left) / rect.width;
+    audio.currentTime = ratio * audio.duration;
   });
 
-  document.querySelectorAll('#chapters button').forEach(btn => {
+  document.querySelectorAll('.listen-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('#chapters button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelector(`[data-chapter="${btn.dataset.chapter}"]`);
-      document.querySelector(`.stop`).scrollIntoView({ behavior: 'smooth', block: btn.dataset.chapter === 'kislovodsk' ? 'start' : 'center' });
+      const idx = chapters.findIndex(c => c.key === btn.dataset.chapter);
+      loadChapter(idx, true);
     });
   });
 })();
