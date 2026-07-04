@@ -3,1247 +3,646 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<title>Кисловодск → Волгоград: путеводитель</title>
+<title>Элиста → Самара: путеводитель</title>
 <style>
   :root{
-    --bg:#faf6ee;
-    --card:#ffffff;
-    --ink:#2b2620;
-    --ink-soft:#6b6255;
-    --line:#e8e0d0;
-    --gold:#b5842a;
-    --gold-soft:#f4e6c8;
-    --sage:#5c7a52;
-    --sage-soft:#e6ede0;
-    --brick:#a8452f;
-    --brick-soft:#f3e0da;
-    --warn:#c0392b;
+    --bg:#faf6ee; --card:#ffffff; --ink:#2b2620; --ink-soft:#6b6255;
+    --line:#e8e0d0; --gold:#b5842a; --gold-soft:#f4e6c8;
+    --sage:#5c7a52; --sage-soft:#e6ede0; --brick:#a8452f; --brick-soft:#f3e0da;
     --shadow:0 1px 3px rgba(43,38,32,.08), 0 1px 2px rgba(43,38,32,.06);
     --radius:14px;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
-    background:var(--bg);
-    color:var(--ink);
+    background:var(--bg); color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-    padding-bottom:60px;
+    line-height:1.5; -webkit-font-smoothing:antialiased; padding-bottom:120px;
   }
   .wrap{max-width:560px;margin:0 auto;padding:0 14px;}
 
-  /* HEADER */
-  header.top{
-    background:linear-gradient(135deg,#3d3226 0%,#2b2620 100%);
-    color:#f5efe0;
-    padding:26px 0 18px;
-  }
+  header.top{background:linear-gradient(135deg,#3d3226 0%,#2b2620 100%);color:#f5efe0;padding:26px 0 18px;}
   header.top .wrap{padding:0 18px;}
-  header.top h1{
-    font-size:1.5rem;
-    margin:0 0 6px;
-    font-weight:700;
-    letter-spacing:-.02em;
-  }
-  header.top p{
-    margin:0;
-    font-size:.88rem;
-    color:#cfc4ac;
-  }
-  .route-line{
-    display:flex;
-    flex-wrap:wrap;
-    gap:4px;
-    align-items:center;
-    margin-top:12px;
-    font-size:.82rem;
-    color:#e8dfc9;
-  }
+  header.top h1{font-size:1.4rem;margin:0 0 6px;font-weight:700;letter-spacing:-.02em;}
+  header.top p{margin:0;font-size:.85rem;color:#cfc4ac;}
+  .route-line{display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin-top:12px;font-size:.78rem;color:#e8dfc9;}
   .route-line b{color:#f5efe0;}
   .route-line .arrow{color:var(--gold);}
 
-  /* QUICK NAV */
-  nav.quicknav{
-    position:sticky;
-    top:0;
-    z-index:50;
-    background:rgba(250,246,238,.95);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
-    padding:10px 0;
-  }
-  nav.quicknav .scroller{
-    display:flex;
-    gap:8px;
-    overflow-x:auto;
-    padding:0 14px;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-  }
+  nav.quicknav{position:sticky;top:0;z-index:50;background:rgba(250,246,238,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:10px 0;}
+  nav.quicknav .scroller{display:flex;gap:8px;overflow-x:auto;padding:0 14px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
   nav.quicknav .scroller::-webkit-scrollbar{display:none;}
-  nav.quicknav a{
-    flex:0 0 auto;
-    background:var(--card);
-    border:1px solid var(--line);
-    color:var(--ink);
-    text-decoration:none;
-    font-size:.78rem;
-    font-weight:600;
-    padding:7px 12px;
-    border-radius:999px;
-    white-space:nowrap;
-  }
-  nav.quicknav a:active{background:var(--gold-soft);}
+  nav.quicknav a{flex:0 0 auto;background:var(--card);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:.74rem;font-weight:600;padding:7px 11px;border-radius:999px;white-space:nowrap;}
 
-  /* LEG SECTIONS */
-  section.leg{
-    padding-top:26px;
-    scroll-margin-top:56px;
-  }
-  .leg-head{
-    display:flex;
-    align-items:baseline;
-    gap:10px;
-    margin-bottom:4px;
-  }
-  .leg-num{
-    background:var(--gold);
-    color:#fff;
-    font-weight:700;
-    font-size:.78rem;
-    width:24px;height:24px;
-    border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    flex:0 0 auto;
-  }
-  .leg-head h2{
-    font-size:1.15rem;
-    margin:0;
-    font-weight:700;
-  }
-  .leg-sub{
-    font-size:.82rem;
-    color:var(--ink-soft);
-    margin:2px 0 14px 34px;
-  }
+  section.leg{padding-top:26px;scroll-margin-top:56px;}
+  .leg-head{display:flex;align-items:baseline;gap:10px;margin-bottom:4px;}
+  .leg-num{background:var(--gold);color:#fff;font-weight:700;font-size:.78rem;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .leg-head h2{font-size:1.1rem;margin:0;font-weight:700;}
+  .leg-sub{font-size:.8rem;color:var(--ink-soft);margin:2px 0 14px 34px;}
 
-  .group-label{
-    font-size:.72rem;
-    text-transform:uppercase;
-    letter-spacing:.06em;
-    color:var(--ink-soft);
-    margin:18px 2px 8px;
-    font-weight:700;
-  }
+  .stop{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:12px;overflow:hidden;}
+  summary.stop-summary{cursor:pointer;list-style:none;padding:13px 14px 8px;display:flex;align-items:center;gap:10px;font-weight:700;}
+  summary.stop-summary::-webkit-details-marker{display:none;}
+  .stop-icon{width:30px;height:30px;border-radius:9px;background:var(--gold-soft);display:flex;align-items:center;justify-content:center;font-size:1rem;flex:0 0 auto;}
+  .stop-title{font-weight:700;font-size:.98rem;flex:1 1 auto;}
+  .km-badge{flex:0 0 auto;background:var(--ink);color:#fff;font-size:.68rem;font-weight:700;padding:4px 8px;border-radius:999px;white-space:nowrap;}
+  .flag{flex:0 0 auto;font-size:.64rem;font-weight:700;background:#fbe4dd;color:#c0392b;padding:2px 7px;border-radius:999px;margin-left:4px;}
+  .stop-body{padding:0 14px 14px;}
+  .stop-body h4{font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--gold);margin:9px 0 3px;}
+  .stop-body p{margin:0 0 4px;font-size:.87rem;}
+  .stop-body p.none{color:var(--ink-soft);font-style:italic;}
 
-  /* CARDS */
-  details.card{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    margin-bottom:10px;
-    box-shadow:var(--shadow);
-    overflow:hidden;
-  }
-  details.card summary{
-    list-style:none;
-    cursor:pointer;
-    padding:13px 14px;
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-weight:600;
-    font-size:.96rem;
-  }
-  details.card summary::-webkit-details-marker{display:none;}
-  .icon{
-    flex:0 0 auto;
-    width:30px;height:30px;
-    border-radius:9px;
-    display:flex;align-items:center;justify-content:center;
-    font-size:1rem;
-  }
-  .type-place .icon{background:var(--gold-soft);}
-  .type-nature .icon{background:var(--sage-soft);}
-  .type-landmark .icon{background:var(--brick-soft);}
-  .card-title{flex:1 1 auto;}
-  .chev{
-    flex:0 0 auto;
-    color:var(--ink-soft);
-    font-size:.8rem;
-    transition:transform .2s;
-  }
-  details[open] .chev{transform:rotate(180deg);}
-  .flag{
-    flex:0 0 auto;
-    font-size:.68rem;
-    font-weight:700;
-    background:#fbe4dd;
-    color:var(--warn);
-    padding:2px 7px;
-    border-radius:999px;
-  }
-  .card-body{
-    padding:0 14px 16px 54px;
-    font-size:.9rem;
-  }
-  .card-meta{
-    color:var(--ink-soft);
-    font-size:.78rem;
-    margin:-6px 0 10px;
-  }
-  .card-body h4{
-    font-size:.72rem;
-    text-transform:uppercase;
-    letter-spacing:.05em;
-    color:var(--gold);
-    margin:12px 0 4px;
-  }
-  .type-nature .card-body h4{color:var(--sage);}
-  .type-landmark .card-body h4{color:var(--brick);}
-  .card-body p{margin:0 0 4px;}
-  .card-body p.none{color:var(--ink-soft);font-style:italic;}
-  .note{
-    background:var(--gold-soft);
-    border-left:3px solid var(--gold);
-    padding:8px 10px;
-    border-radius:6px;
-    font-size:.82rem;
-    margin:20px 0;
-  }
-  .note.warn{background:#fbe4dd;border-left-color:var(--warn);}
+  .listen-btn{display:inline-flex;align-items:center;gap:6px;background:var(--gold-soft);border:1px solid var(--gold);color:var(--ink);font-size:.76rem;font-weight:700;padding:6px 12px;border-radius:999px;cursor:pointer;margin:6px 0 2px;}
+  .listen-btn.playing{background:var(--gold);color:#fff;}
+  .listen-btn.small{font-size:.7rem;padding:4px 10px;background:#fff;}
 
-  footer{
-    margin-top:40px;
-    padding:20px 0 10px;
-    text-align:center;
-    font-size:.76rem;
-    color:var(--ink-soft);
-  }
-  a.top-link{
-    display:block;
-    text-align:center;
-    margin-top:26px;
-    font-size:.82rem;
-    color:var(--gold);
-    text-decoration:none;
-    font-weight:600;
-  }
+  .nested{margin:10px 0 0 10px;padding:9px 11px;border-left:3px solid var(--brick);background:var(--brick-soft);border-radius:0 10px 10px 0;}
+  .nested.nature{border-left-color:var(--sage);background:var(--sage-soft);}
+  .nested .n-title{font-weight:700;font-size:.86rem;margin-bottom:3px;}
+  .nested p{font-size:.82rem;margin:0 0 4px;color:var(--ink);}
+
+  .note{background:var(--gold-soft);border-left:3px solid var(--gold);padding:9px 11px;border-radius:6px;font-size:.8rem;margin:16px 0;}
+  .note.warn{background:#fbe4dd;border-left-color:#c0392b;}
+
+  .podcast-bar{position:fixed;left:0;right:0;bottom:0;z-index:100;background:#2b2620;color:#f5efe0;padding:9px 14px 12px;box-shadow:0 -2px 10px rgba(0,0,0,.15);}
+  .podcast-bar .track-title{font-size:.78rem;font-weight:700;margin-bottom:1px;}
+  .podcast-bar .track-sub{font-size:.68rem;color:#cfc4ac;margin-bottom:7px;}
+  .podcast-bar .bar{height:4px;background:#4a4033;border-radius:2px;overflow:hidden;margin-bottom:9px;cursor:pointer;}
+  .podcast-bar .bar .fill{height:100%;background:var(--gold);width:0%;}
+  .podcast-bar .controls{display:flex;align-items:center;justify-content:center;gap:20px;}
+  .podcast-bar button{background:none;border:none;color:#f5efe0;font-size:1rem;cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center;}
+  .podcast-bar button.play{background:var(--gold);color:#2b2620;border-radius:50%;width:44px;height:44px;font-size:1.2rem;}
+  .podcast-bar button:disabled{opacity:.3;}
+
+  a.top-link{display:block;text-align:center;margin-top:20px;font-size:.82rem;color:var(--gold);text-decoration:none;font-weight:600;}
+  footer{margin-top:30px;padding:20px 0 10px;text-align:center;font-size:.74rem;color:var(--ink-soft);}
 </style>
 </head>
 <body>
 
 <header class="top" id="top">
   <div class="wrap">
-    <h1>Кисловодск → Волгоград</h1>
-    <p>Путеводитель по контрольным точкам маршрута · история, факты, личности</p>
+    <h1>Элиста → Самара</h1>
+    <p>Путеводитель по маршруту вдоль Волги · история, факты, личности, аудио-рассказ</p>
     <div class="route-line">
-      <b>Кисловодск</b><span class="arrow">→</span><b>Минводы</b><span class="arrow">→</span><b>Благодарный</b><span class="arrow">→</span><b>Элиста</b><span class="arrow">→</span><b>Волгоград</b>
+      <b>Элиста</b><span class="arrow">→</span><b>Волгоград</b><span class="arrow">→</span><b>Камышин</b><span class="arrow">→</span><b>Саратов</b><span class="arrow">→</span><b>Хвалынск</b><span class="arrow">→</span><b>Сызрань</b><span class="arrow">→</span><b>Самара</b>
     </div>
   </div>
 </header>
 
 <nav class="quicknav">
   <div class="scroller">
-    <a href="#leg1">1. Кисловодск–Минводы</a>
-    <a href="#leg2">2. Александровское–Благодарный</a>
-    <a href="#leg3">3. Степь до Элисты</a>
-    <a href="#leg4">4. Элиста</a>
-    <a href="#leg5">5. Элиста–Волгоград</a>
+    <a href="#leg1">1. Элиста</a>
+    <a href="#leg2">2. Элиста–Волгоград</a>
+    <a href="#leg3">3. Волгоград–Камышин</a>
+    <a href="#leg4">4. Камышин–Саратов</a>
+    <a href="#leg5">5. Саратов–Хвалынск</a>
+    <a href="#leg6">6. Хвалынск–Сызрань</a>
+    <a href="#leg7">7. Сызрань–Самара</a>
   </div>
 </nav>
 
 <div class="wrap">
 
-<!-- ===================== LEG 1 ===================== -->
+<div class="note">
+  <b>Дистанции приблизительные</b>, отсчёт от Элисты (0 км). Часть точек — ⚠️ подтверждена только одним источником или лежит рядом с трассой, а не прямо на ней — честно помечено на карточке. У каждой точки и у большинства достопримечательностей есть аудио-рассказ — кнопка «слушать» запускает общий плеер внизу экрана.
+</div>
+
+<!-- ===================== LEG 1: ЭЛИСТА ===================== -->
 <section class="leg" id="leg1">
-  <div class="leg-head"><span class="leg-num">1</span><h2>Кисловодск → Минеральные Воды</h2></div>
-  <p class="leg-sub">Курортная зона Кавминвод — минеральные источники, старинные санатории, места Лермонтова</p>
-
-  <div class="group-label">Населённые пункты</div>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Кисловодск</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Официальная дата основания — 9 сентября 1803 г.: по указу Александра I у источника нарзана заложили земляную крепость для защиты военных и первых курортников. Крепость (сейчас музей) солдаты 16-го егерского полка возвели за 5 месяцев. Первопроходцем курортного дела считается граф И. И. Морков, разбивший здесь лагерь ещё в 1798 г. и лечивший нарзаном астму.</p>
-      <h4>Факты</h4>
-      <p>Название — от «кислой воды», нарзана. В городе один из крупнейших рукотворных парков Европы — Курортный парк. Город лежит в котловине, защищённой от ветров — уникально чистый воздух для климатического курорта.</p>
-      <h4>Личности</h4>
-      <p>Лечились и бывали: Пушкин, Лермонтов (описал город в «Герое нашего времени»), Лев Толстой (1853), Шаляпин (имел дачу, сейчас музей), Рахманинов, Горький, Чехов, Станиславский.</p>
-    </div>
-  </details>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Подкумок</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Посёлок основан 3 августа 1893 г., назван по реке Подкумок. До 2020 г. был центром отдельного сельсовета.</p>
-      <h4>Факты</h4>
-      <p>Стоит на федеральной трассе А-157 Минводы–Кисловодск; в 2019–2024 гг. участок дороги в черте посёлка реконструировали (2→4 полосы, шумозащитные экраны). Типичный придорожный посёлок Кавминвод без крупных достопримечательностей.</p>
-      <h4>Личности</h4>
-      <p class="none">Известных личностей, связанных именно с посёлком, не зафиксировано.</p>
-    </div>
-  </details>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Ессентуки</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>В 1798 г. на реке Большой Ессентук заложен военный редут — опорный пункт Кавказской линии. В 1825 г. по инициативе генерала А. П. Ермолова сюда переселили 235 семей волгских казаков, основавших станицу Ессентукскую. Статус города — с 18 декабря 1925 г.</p>
-      <h4>Факты</h4>
-      <p>Целебные источники открыл в 1811 г. доктор Ф. П. Гааз, изучил и прославил в 1823 г. профессор А. Нелюбин. Родина минеральной воды «Ессентуки №4» и «№17». Здесь крупнейшая в Европе питьевая галерея минеральных вод.</p>
-      <h4>Личности</h4>
-      <p>На курорте лечились и отдыхали Шаляпин (летние сезоны 1915–1916 гг.), Станиславский, писатель В. Гиляровский.</p>
-    </div>
-  </details>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Минеральные Воды</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Возник не вокруг источников, а благодаря железной дороге: в 1875 г. на Ростово-Владикавказской магистрали открылась станция Султановская (земли ногайского султана). В 1906 г. переименована в Илларионовский, в 1921 г. посёлок и станцию объединили в город Минеральные Воды.</p>
-      <h4>Факты</h4>
-      <p>Главный транспортный узел Кавминвод — аэропорт и ж/д узел, через которые проходит почти весь турпоток региона. Пассажирское сообщение с Кисловодском открыто 17 мая 1894 г.; в 1936 г. участок стал одним из первых электрифицированных в СССР.</p>
-      <h4>Личности</h4>
-      <p class="none">Город известен прежде всего как транспортные ворота Кавминвод; персональных знаменитостей, связанных именно с историей города, источники не выделяют.</p>
-    </div>
-  </details>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Новокавказский</span><span class="flag">⚠️ мало данных</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Достоверных сведений о посёлке именно в составе Минераловодского округа найти не удалось (есть тёзка в Александровском округе, основанный в 1962 г. на базе конезавода — это другой населённый пункт).</p>
-      <h4>Факты</h4>
-      <p class="none">Проверяемых фактов недостаточно — малый населённый пункт без отдельной статьи в доступных справочниках. Домысливать не стали.</p>
-      <h4>Личности</h4>
-      <p class="none">Сведений не найдено.</p>
-    </div>
-  </details>
-
-  <div class="group-label">Природа</div>
-
-  <details class="card type-nature">
-    <summary><span class="icon">🌿</span><span class="card-title">Гора Кольцо</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">43.9417, 42.6936 · видна с трассы А-157</p>
-      <h4>История</h4>
-      <p>Скальное образование на высоте 871 м возникло из-за многовековой ветровой и водной эрозии песчаника — сквозное отверстие пробила сама природа. Достопримечательностью стала в XIX веке вместе с расцветом курортной жизни Кисловодска.</p>
-      <h4>Факты</h4>
-      <p>Входит в состав музея-заповедника М. Ю. Лермонтова. В одной из ниш сохранилась надпись, предположительно оставленная другом поэта М. И. фон Цейдлером.</p>
-      <h4>Личности</h4>
-      <p>М. Ю. Лермонтов увековечил скалу в «Герое нашего времени» («...есть скала, называемая Кольцом; это ворота, образованные природой»).</p>
-    </div>
-  </details>
-
-  <details class="card type-nature">
-    <summary><span class="icon">🌿</span><span class="card-title">Медовые водопады</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">43.8836, 42.5864 · ~25 км от трассы, КЧР</p>
-      <h4>История</h4>
-      <p>Группа из пяти водопадов на реках Аликоновка и Эчки-Баш образовалась после обрушения скал в ущелье. Название — от легенды о диких пчёлах в расщелинах скал: половодье смывало соты, вода приобретала сладковатый привкус.</p>
-      <h4>Факты</h4>
-      <p>Самый мощный — Жемчужный, самый высокий — Большой Медовый (18 м). В XIX в. рядом работал ресторан, разрушенный землетрясением 1921 г.; туристическим местом стало вновь в 1960-х после открытия турбазы.</p>
-      <h4>Личности</h4>
-      <p class="none">Отдельных персоналий не зафиксировано — известность принесли легенда и природная красота.</p>
-    </div>
-  </details>
-
-  <details class="card type-nature">
-    <summary><span class="icon">🌿</span><span class="card-title">Гора Машук</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">44.0495, 43.0897 · Пятигорск, в стороне от маршрута</p>
-      <h4>История</h4>
-      <p>У подножия 15 июля 1841 г. на дуэли с отставным майором Н. С. Мартыновым погиб 26-летний М. Ю. Лермонтов, сосланный на Кавказ после дуэли с сыном французского посланника Э. де Барантом.</p>
-      <h4>Факты</h4>
-      <p>Первый памятный камень поставили в 1878 г., окончательный обелиск открыли в 1914 г. к 100-летию поэта. Машук — лакколит, «неудавшийся вулкан», у подножия которого также лежит Провал.</p>
-      <h4>Личности</h4>
-      <p>М. Ю. Лермонтов погиб здесь на дуэли; его противник — Н. С. Мартынов.</p>
-    </div>
-  </details>
-
-  <details class="card type-nature">
-    <summary><span class="icon">🌿</span><span class="card-title">Озеро Провал</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">44.0425, 43.0975 · Пятигорск</p>
-      <h4>История</h4>
-      <p>Карстово-тектонический грот с подземным озером глубиной 11 м на южном склоне Машука; образовался при обрушении свода полости с минеральной водой.</p>
-      <h4>Факты</h4>
-      <p>Бирюзовый цвет воды — из-за серы и особых бактерий. У входа стоит статуя Остапа Бендера.</p>
-      <h4>Личности</h4>
-      <p>Ильф и Петров прославили место в «Двенадцати стульях» (1927) — Бендер продаёт билеты на вход в Провал; год спустя после публикации плату действительно ввели (сейчас вход бесплатный).</p>
-    </div>
-  </details>
-
-  <details class="card type-nature">
-    <summary><span class="icon">🌿</span><span class="card-title">Озеро Тамбукан</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">между Пятигорском и Ессентуками</p>
-      <h4>История</h4>
-      <p>Солёное бессточное озеро славится лечебной грязью. По легенде, ещё Тамерлан в походе 1395–1396 гг. лечил здесь больную ногу. Первые научные анализы грязи провёл в 1883 г. химик А. Н. Фомин, с 1886 г. грязь начали применять в медицине.</p>
-      <h4>Факты</h4>
-      <p>Гидрогеолог И. И. Володкевич оценил запасы грязи примерно в 1,6 млн тонн — хватит на столетия применения. В грязи — лизоцим с бактерицидными свойствами, соли магния, натрия, калия.</p>
-      <h4>Личности</h4>
-      <p>Легенда связывает озеро с Тамерланом; в научном изучении грязи ключевую роль сыграли химик А. Н. Фомин и гидрогеолог И. И. Володкевич.</p>
-    </div>
-  </details>
-
-  <div class="group-label">Рукотворное — Кисловодск</div>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Нарзанная галерея</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Первый деревянный каптаж источника («Мясниковский сруб») построен в 1823 г. По распоряжению наместника князя М. С. Воронцова архитектор Самуил Уптон начал возведение каменной галереи в 1848 г., завершили в 1853 г.</p>
-      <h4>Факты</h4>
-      <p>Здание в стиле неоготики по форме напоминает замочную скважину, в «замке» которой бьёт источник. Памятник культурного наследия федерального значения, один из главных символов Кисловодска.</p>
-      <h4>Личности</h4>
-      <p>Автор проекта — английский архитектор Самуил Уптон, приглашённый князем М. С. Воронцовым.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Главные нарзанные ванны</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Построены архитектором А. Н. Клепининым в 1901–1903 гг., введены в эксплуатацию в 1904 г. — приурочены к 100-летию Кисловодска.</p>
-      <h4>Факты</h4>
-      <p>Эклектичный «мавританский» стиль с элементами североиндийской архитектуры, майолика на фасаде. Внутри — два бассейна и 24 ванны. Памятник архитектуры федерального значения.</p>
-      <h4>Личности</h4>
-      <p>Автор проекта — архитектор А. Н. Клепинин.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Колоннада Курортного парка</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Задумана к столетию победы над Наполеоном (1912), но строительство не успели завершить в срок — открыли в 1913 г.</p>
-      <h4>Факты</h4>
-      <p>Античный стиль с коринфскими колоннами, два яруса: колонны внизу и балюстрада с террасой наверху. Более века — главный символ входа в Курортный парк.</p>
-      <h4>Личности</h4>
-      <p>Автор проекта — архитектор Николай Николаевич Семёнов, много строивший на Кавминводах.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Ж/д вокзал Кисловодска</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Строительство ветки от Минвод и вокзала началось в 1893 г. по инициативе управляющего Владикавказской железной дорогой И. Д. Иноземцева. Пассажирское движение открыто 17 мая 1894 г., здание отделано к 1895 г.</p>
-      <h4>Факты</h4>
-      <p>Сочетает модерн, эклектику, английскую готику, мавританское зодчество и итальянский ренессанс. Объект культурного наследия России.</p>
-      <h4>Личности</h4>
-      <p>Инициатор строительства ветки — И. Д. Иноземцев.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Свято-Никольский собор</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Первый храм появился в крепости в 1803 г.; деревянную церковь по проекту братьев Бернардацци возвели в 1827 г., каменный собор — в 1888 г. В 1936 г. взорван советской властью. Возрождение началось в 1991 г., освящён 22 мая 2008 г.</p>
-      <h4>Факты</h4>
-      <p>Высота воссозданного собора — 54 м, сохранён трёхапсидный крестообразный план с пятью куполами прежнего храма.</p>
-      <h4>Личности</h4>
-      <p>Проект деревянной церкви (1827) выполнили архитекторы братья Бернардацци — Джузеппе и Джованни.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Храм Вардана Мамиконяна</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">Казачья горка</p>
-      <h4>История</h4>
-      <p>Решение о строительстве принято в 1992 г. по инициативе армянской общины. Строительство заняло 5 лет, освящён 31 августа 1997 г. при участии Католикоса Всех Армян Гарегина I.</p>
-      <h4>Факты</h4>
-      <p>Стоит на самой высокой точке Кисловодска, построен из розового туфа, напоминающего постройки Еревана. На территории — памятник «Колокол памяти» (1999).</p>
-      <h4>Личности</h4>
-      <p>Авторы проекта — архитектор Арсен Арустамян и конструктор Вачаган Кеворкян. Храм посвящён полководцу Вардану Мамиконяну, погибшему в 451 г. в Аварайрской битве, защищая христианство армян.</p>
-    </div>
-  </details>
-
-  <div class="group-label">Рукотворное — Ессентуки</div>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Грязелечебница им. Семашко</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>В 1911 г. конкурс проектов выиграл академик Евгений Шреттер. Строительство началось в 1913 г., открытие — 22 июля 1915 г.; изначально здание называлось Алексеевским в честь цесаревича Алексея. С 1923 г. носит имя наркома Н. А. Семашко.</p>
-      <h4>Факты</h4>
-      <p>Архитектор придал зданию облик античных римских терм. Один из самых узнаваемых памятников неоклассицизма на Кавминводах, объект культурного наследия федерального значения.</p>
-      <h4>Личности</h4>
-      <p>Автор проекта — академик архитектуры Е. Ф. Шреттер; здание носит имя наркома здравоохранения Н. А. Семашко.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Верхние (Николаевские) ванны</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Построены в 1896–1898 гг. по проекту Н. В. Дмитриева и В. К. Правдзика, названы в честь Николая II.</p>
-      <h4>Факты</h4>
-      <p>Светло-жёлтый кирпич, поздний русский классицизм с элементами ампира и барокко; ванны высечены из цельных кусков каррарского мрамора. Памятник архитектуры федерального значения, действует по сей день.</p>
-      <h4>Личности</h4>
-      <p>Авторы проекта — архитекторы Н. В. Дмитриев и В. К. Правдзик.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Питьевая галерея №17 «Пятитысячник»</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Построена в 1990 г. на территории санатория «Виктория», стала крупнейшей питьевой галереей минвод в Европе. Название — от пропускной способности до 5000 посетителей за смену.</p>
-      <h4>Факты</h4>
-      <p>Одновременно доступны три источника — «Ессентуки №4», «№17» и «Ессентуки-Новая», вода холодная/тёплая/горячая. Воду №17 назначают при мочекаменной болезни. Вход свободный для всех.</p>
-      <h4>Личности</h4>
-      <p class="none">Персональных имён строителей источники не выделяют.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Николаевская церковь</span><span class="flag">⚠️ сгорела 2026</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Построена казаками станицы Ессентукской в 1826 г. по проекту братьев Бернардацци — целиком из дерева, без единого гвоздя.</p>
-      <h4>Факты</h4>
-      <p>При церкви действовали школа, богадельня, библиотека и архив; храм оставался действующим даже в советский период. <b>11 июня 2026 г. историческое здание полностью сгорело</b> при пожаре, вызванном коротким замыканием (площадь возгорания — 300 м²; погибших нет). Службы сейчас проходят во временном храме, восстановление обсуждается.</p>
-      <h4>Личности</h4>
-      <p>Авторы проекта — архитекторы братья Бернардацци, работавшие также в Кисловодске и Пятигорске.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Храмовый комплекс Петра и Павла</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">статуя Христа 22 м — крупнейшая в России</p>
-      <h4>История</h4>
-      <p>Комплекс основан в начале 2000-х рядом со Свято-Георгиевским монастырём, ~10 км от центра Ессентуков. В 2013 г. установлена статуя Христа.</p>
-      <h4>Факты</h4>
-      <p>Статуя из белого мрамора на 8-метровом постаменте; за сходство с бразильским монументом место прозвали «Рио-де-Кавказ» (сам оригинал в Рио — 38 м). Комплекс включает два храма, четыре часовни, скульптуры античных философов.</p>
-      <h4>Личности</h4>
-      <p>Скульпторы комплекса — братья Виктор и Юрий Жоглины; статую Христа создал скульптор Александр Крейдин.</p>
-    </div>
-  </details>
-
-  <div class="group-label">Рукотворное — Минеральные Воды</div>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Железнодорожный вокзал</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Первоначальное здание разрушено при отступлении немецких войск в ВОВ. Новое построено в 1955 г. в рамках послевоенного восстановления Кавминвод.</p>
-      <h4>Факты</h4>
-      <p>Стиль барокко, полукруг белоснежных колонн. Перед входом — скульптура «Орёл», терзающий змею: по легенде, орёл исцелился от укуса змеи, испив минеральной воды — образ стал неофициальной эмблемой Кавминвод.</p>
-      <h4>Личности</h4>
-      <p class="none">Персональных имён архитекторов не зафиксировано.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Покровский собор</span><span class="flag">⚠️ без канонизации</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Девятикупольный собор строили пять лет (1992–1997) — рекордно короткий срок. Освящён 14 октября 1997 г.; в августе 1998 г. крестным ходом сюда перенесли мощи старца Феодосия Кавказского (1868–1948).</p>
-      <h4>Факты</h4>
-      <p>Один из крупнейших храмов Кавминвод, центр паломничества. Почитание Феодосия Кавказского как святого — местная традиция с 1995 г. по решению ставропольского митрополита Гедеона; Синодальная комиссия по канонизации официально не подтвердила канонизацию, имя отсутствует в официальном церковном календаре РПЦ, хотя местное почитание очень сильное.</p>
-      <h4>Личности</h4>
-      <p>Иеросхимонах Феодосий Кавказский — почитаемый местно чудотворец и покровитель Ставрополья (без официальной общецерковной канонизации).</p>
-    </div>
-  </details>
-
-</section>
-
-<!-- ===================== LEG 2 ===================== -->
-<section class="leg" id="leg2">
-  <div class="leg-head"><span class="leg-num">2</span><h2>Александровское → Благодарный</h2></div>
-  <p class="leg-sub">Старинные ставропольские сёла, скальные памятники природы, казачьи храмы</p>
-
-  <div class="group-label">Населённые пункты</div>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Александровское</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Основано 24 октября 1777 г. как крепость Святого Александра Невского — одна из 10 крепостей Азово-Моздокской оборонительной линии. Первыми строителями стали казаки с Хопра и Волги. В 1785 г. получило статус уездного города Александровск, но после основания Пятигорска (1830) значение утратило: сначала заштатный город, затем станица, с 30 декабря 1869 г. — село.</p>
-      <h4>Факты</h4>
-      <p>Через село проходил почтовый Большой Черкасский тракт. Одно из самых протяжённых сёл России — растянуто вдоль реки Томузловки на много км. В окрестностях — уникальный комплекс скальных памятников природы «Каменное ожерелье».</p>
-      <h4>Личности</h4>
-      <p>По почтовому тракту проезжали Пушкин, Лермонтов, Белинский, Глинка, Л. Толстой — все направлялись на Кавказ или обратно. В 1889–1906 гг. здесь жила писательница <b>Марко Вовчок</b> (Мария Вилинская) с мужем, морским офицером М. Д. Лобач-Жученко.</p>
-    </div>
-  </details>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Новый Маяк</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Возник в 1936 г. как Новосёлицкий государственный лесопитомник; в 1960-е на его базе создан плодосовхоз «Маяк». В 1958–1972 гг. входил в Александровский район, затем переименован в посёлок Новый Маяк.</p>
-      <h4>Факты</h4>
-      <p>Название отражает советскую эпоху совхозного строительства («маяк» — образцовое хозяйство). Возник как ведомственный лесопитомник, а не крестьянское поселение — редкий для региона случай.</p>
-      <h4>Личности</h4>
-      <p class="none">Известных личностей не зафиксировано.</p>
-    </div>
-  </details>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Журавское</span><span class="flag">⚠️ Новосёлицкий округ</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Основано, по разным данным, в 1795, 1811 или 1816 г. переселенцами с реки Журавки. В 1875 г. построена церковь. Административно относится к соседнему Новосёлицкому округу (а не Благодарненскому).</p>
-      <h4>Факты</h4>
-      <p>Название — от журавлей, некогда в изобилии населявших пойму реки. К 1902 г. население (вместе с соседним Падинским) превышало 6,8 тыс. человек.</p>
-      <h4>Личности</h4>
-      <p><b>Михаил Нарган</b> (1924–1971) — уроженец села, сержант РККА, Герой Советского Союза (звание присвоено в 1945 г.) за подвиги в Великой Отечественной войне.</p>
-    </div>
-  </details>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Елизаветинское</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Основано в 1822 г. (по другим данным — в 1852-м). Название дал кавказский наместник граф М. С. Воронцов в честь супруги Елизаветы. Народное прозвище «Грязное» — из-за пересыхавшей летом речки. В 1864 г. построена каменная церковь Покрова.</p>
-      <h4>Факты</h4>
-      <p>Двойное название — официальное и бытовое — отражает разницу между «высоким» и народным именованием сёл на Ставрополье. К началу XX века насчитывало около 450 дворов.</p>
-      <h4>Личности</h4>
-      <p><b>Юрий Остапчук</b> (1962–1984) — лейтенант, командир десантно-штурмового взвода, погиб в Афганистане, посмертно награждён орденом Красной Звезды.</p>
-    </div>
-  </details>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Благодарный</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Село Благодарное основано в 1782 г. переселенцами из центральных губерний, среди первых — отставные солдаты. Название связано с благодарностью крестьян за выделенную землю. Городом стало 9 сентября 1971 г.</p>
-      <h4>Факты</h4>
-      <p>Топоним прямо фиксирует эмоцию первых поселенцев — редкий случай. Городом стал поздно — до 1971 г. два века оставался селом. В 1918 г. здесь сформирована знаменитая Стальная дивизия времён Гражданской войны.</p>
-      <h4>Личности</h4>
-      <p class="none">Личных имён вне военной истории Гражданской войны (см. музей Грибцова) не зафиксировано.</p>
-    </div>
-  </details>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Алексеевское</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Основано в 1905–1906 гг., названо в честь цесаревича Алексея Николаевича. Первыми жителями стали иногородние крестьяне и немецкие колонисты. В Гражданскую войну в селе погибли 43 красных партизана.</p>
-      <h4>Факты</h4>
-      <p>Названо в честь наследника престола — редкий «монархический» топоним, сохранившийся после революции. В селе — одна из старейших деревянных походных казачьих церквей края.</p>
-      <h4>Личности</h4>
-      <p class="none">Известных личностей не зафиксировано.</p>
-    </div>
-  </details>
-
-  <div class="group-label">Природа</div>
-
-  <details class="card type-nature">
-    <summary><span class="icon">🌿</span><span class="card-title">«Каменное ожерелье»</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">окрестности Александровского</p>
-      <h4>История</h4>
-      <p>Комплекс скальных памятников природы сформировался за миллионы лет из неогеновых песчаников на Прикалаусских высотах. Включает горы Голубиная (675 м) и Лягушка (583 м), скалы Столбы, Черепаха, Бегемот и пещеры «Каменные сараи».</p>
-      <h4>Факты</h4>
-      <p>Скалы носят «зоологические» названия из-за сходства с животными — гора Лягушка видна прямо с трассы. На горе Голубиной есть карстовый колодец глубиной до 6 м. Пещеры «Каменные сараи» (4 км западнее села) — около 10 гротов, крупнейший длиной 45 м.</p>
-      <h4>Личности</h4>
-      <p class="none">Известных личностей не зафиксировано.</p>
-    </div>
-  </details>
-
-  <details class="card type-nature">
-    <summary><span class="icon">🌿</span><span class="card-title">Дубовый лес на Прикалаусских высотах</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">5 км юго-западнее Александровского</p>
-      <h4>История</h4>
-      <p>Ботанический памятник природы регионального значения — реликтовое насаждение дуба черешчатого на восточной границе его ареала.</p>
-      <h4>Факты</h4>
-      <p>Возраст отдельных деревьев — 300–350 лет, редкость для степной зоны Ставрополья. Далее к востоку дуб черешчатый уже не образует естественных насаждений. На территории запрещены охота и заготовка ресурсов.</p>
-      <h4>Личности</h4>
-      <p class="none">Известных личностей не зафиксировано.</p>
-    </div>
-  </details>
-
-  <div class="group-label">Рукотворное</div>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Дом-музей Марко Вовчок</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">Александровское, памятник истории регионального значения</p>
-      <h4>История</h4>
-      <p>Дом, где писательница жила в 1889–1906 гг. вместе с мужем-офицером, чья служба часто была связана с Кавказом (в общей сложности она провела здесь около семи лет).</p>
-      <h4>Факты</h4>
-      <p>Основной мемориальный музей Марко Вовчок находится в Нальчике (там она провела последние два года жизни и похоронена); александровский дом — самостоятельный региональный памятник её ставропольского периода. Последнее произведение — повесть «Гайдамаки» (1907).</p>
-      <h4>Личности</h4>
-      <p><b>Марко Вовчок</b> (Мария Вилинская, 1833–1907) — классик украинской литературы («Народні оповідання», 1857), переводчица (в т.ч. Жюля Верна). Поддерживала связи с Т. Шевченко, И. Тургеневым, Н. Чернышевским, Д. Писаревым, В. Гюго.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Краснознаменский курганный могильник</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">~10 км от Александровского</p>
-      <h4>История</h4>
-      <p>Курганный некрополь скифской знати, датируется 2–4-й четвертью VII в. до н. э. — эпохой раннескифской культуры. Раскопки вела археолог В. Г. Петренко в 1973–1975 и 1978–1980 гг.</p>
-      <h4>Факты</h4>
-      <p>Девять курганов с погребениями военной аристократии; самый крупный «царский» курган в древности достигал высоты 14–15 м при диаметре ~70 м. Уникальная концентрация элитных раннескифских погребений для Предкавказья. Атрибуция дискутируется: скифы или киммерийцы.</p>
-      <h4>Личности</h4>
-      <p>Курганы принадлежат анонимной родоплеменной знати раннего железного века. Из исследователей памятник связан с археологом <b>В. Г. Петренко</b>, руководившей раскопками 1970–80-х.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Церковь Казанской иконы Божией Матери</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">Алексеевское · 45.211836, 43.573625</p>
-      <h4>История</h4>
-      <p>Уникальная деревянная походная казачья церковь, изначально построена в 1840 г. в Поволжье (по другим данным — в селе Богородицком Медвеженского уезда СК). В 1905 г. сруб перевезли в Алексеевское и собрали на каменном фундаменте.</p>
-      <h4>Факты</h4>
-      <p>Одна из всего трёх сохранившихся в крае походных перевозных казачьих церквей — и старейшая из них. Здание до сих пор не имеет жёсткого крепления к фундаменту, подтверждая изначальное предназначение как «кочующего» храма. Сохранились старинные иконы покровителей казачества.</p>
-      <h4>Личности</h4>
-      <p class="none">Персональных имён строителей или дарителей достоверно не зафиксировано — значение памятника в его типологической уникальности.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Церковь Александра Невского</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">Благодарный</p>
-      <h4>История</h4>
-      <p>Построена в 1894 г. в память 25-летия царствования Александра II. Строительство обошлось приходу в 57 000 рублей — значительная сумма для сельского прихода.</p>
-      <h4>Факты</h4>
-      <p>Изначально — вызолоченный пятиярусный иконостас с более чем 60 иконами, писали мастера из Ставрополя и Москвы. Освящена в честь Александра Невского — небесного покровителя Александра II, подчёркивая мемориальный характер постройки.</p>
-      <h4>Личности</h4>
-      <p class="none">Личностей, лично связанных со строительством, не зафиксировано.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Музей им. П. Ф. Грибцова</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">Благодарный, в здании штаба Стальной дивизии</p>
-      <h4>История</h4>
-      <p>Музей действует с 1990 г. в здании, служившем в 1918 г. штабом 1-й Стальной стрелковой дивизии, сформированной в Благодарном под командованием Д. П. Жлобы. 18 сентября 1918 г. в село стянулись полки, присоединившиеся к Жлобе.</p>
-      <h4>Факты</h4>
-      <p>Здание музея — подлинный исторический штаб, а не новодел. Дивизия Жлобы прославилась тяжёлым походом с Северного Кавказа к Царицыну осенью 1918 г. и обороной против Донской армии генерала Краснова.</p>
-      <h4>Личности</h4>
-      <p><b>Дмитрий Жлоба</b> (1887–1938) — красный командир, возглавил Стальную дивизию в мае 1918 г., участвовал в обороне Царицына, награждён двумя орденами Красного Знамени. <b>Пётр Грибцов</b> — краевед, чьим именем назван музей за вклад в сохранение местной истории.</p>
-    </div>
-  </details>
-
-</section>
-
-<!-- ===================== LEG 3 ===================== -->
-<section class="leg" id="leg3">
-  <div class="leg-head"><span class="leg-num">3</span><h2>Степной участок до Элисты</h2></div>
-  <p class="leg-sub">Туркменский район Ставрополья — земля ставропольских туркмен (трухмен), малые аулы и хутора</p>
-
-  <div class="note">
-    <b>Этнографическая справка.</b> Туркменский район назван по этнической группе — ставропольским туркменам (трухменам), тюркоязычному кочевому народу, переселённому на Ставрополье с полуострова Мангышлак калмыцким правителем Хо-Урлюком в начале XVII века. Названия сёл Кучерла, Кендже-Кулак, Сабан-Антуста — туркменско-тюркского происхождения, восходят к историческим кочевым урочищам и родовым названиям.
-  </div>
-
-  <div class="group-label">Населённые пункты</div>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Мирное</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Основано в 1905 г. Название связано, по одной версии, с мирным разделом земельных наделов первыми переселенцами, по другой — с окончанием Русско-японской войны (1905 г.). Самостоятельный сельсовет образован лишь в 1991 г.</p>
-      <h4>Факты</h4>
-      <p>Расположено в 30 км от Благодарного. Типичное степное село аграрного пояса округа.</p>
-      <h4>Личности</h4>
-      <p class="none">Известных личностей не зафиксировано.</p>
-    </div>
-  </details>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Кучерла</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Аул возник в 1863–1864 гг. при расселении ставропольских туркмен и «казыларов» (потомков туркмено-калмыцких браков). Уже в 1868 г. — 607 жителей. К началу XX в. действовали мечеть, две школы, торговые лавки.</p>
-      <h4>Факты</h4>
-      <p>Название тюркско-туркменское; урочище Кучерли упоминалось как место кочёвок трухмен ещё в 1854 г. В Великую Отечественную на фронт ушли и погибли 230 односельчан.</p>
-      <h4>Личности</h4>
-      <p class="none">Достоверных сведений об известных личностях не найдено.</p>
-    </div>
-  </details>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Кендже-Кулак</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Основано в 1904 г. на реке Кучерла. С апреля 1920 г. — центр Кендже-Кулакской волости, объединявшей ряд туркменских аулов.</p>
-      <h4>Факты</h4>
-      <p>Название переводят как «маленькая балка» — тюркско-туркменский топоним, отражающий рельеф. Сегодня муниципалитет объединяет само село и аул Сабан-Антуста, ~2 тыс. жителей.</p>
-      <h4>Личности</h4>
-      <p>Фронтовики-орденоносцы Великой Отечественной войны: В. Н. Клещунов (ордена Ленина и Красной Звезды), Н. И. Плотников (орден Отечественной войны I ст. и Красной Звезды), Я. Т. Чершембеев (орден Отечественной войны II ст.).</p>
-    </div>
-  </details>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Сабан-Антуста</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Возник из слияния двух аулов: Сабан (1906) и Антуста (1908, в 2 верстах севернее). В 1947 г. последние жители Сабана переселились в Антусту, аулы окончательно слились.</p>
-      <h4>Факты</h4>
-      <p>По переписи 1926 г. — практически моноэтничное туркменское (трухменское) поселение (260 и 360 жителей). Туркменский район был упразднён в 1956 г. и восстановлен в 1970-м.</p>
-      <h4>Личности</h4>
-      <p><b>Хасмурат Ахметов</b> (1962, Сабан-Антуста — 1982) — воин-интернационалист, погиб при выполнении боевого задания в Афганистане, посмертно награждён орденом Красной Звезды.</p>
-    </div>
-  </details>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Каменная Балка</span><span class="flag">⚠️ есть тёзки</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>В крае есть минимум три села с таким названием. Историческая связь с Туркменским районом задокументирована у одного: 9 сентября 1929 г. это село (вместе с Байчарой и Заветным) передано из Туркменского района в Арзгирский, где и находится сейчас. Основано в 1913 г.</p>
-      <h4>Факты</h4>
-      <p>До 2020 г. было отдельным сельским поселением. Есть также одноимённое село в Благодарненском округе (основано в 1910 г.) — их не следует путать.</p>
-      <h4>Личности</h4>
-      <p class="none">Для арзгирской (бывшей туркменской) Каменной Балки достоверных сведений о личностях не найдено. Герой Советского Союза Пётр Прилепа связан с другим одноимённым селом — в Благодарненском округе.</p>
-    </div>
-  </details>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Лола</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">посёлок-эксклав Элистинского городского округа, Калмыкия</p>
-      <h4>История</h4>
-      <p>Точная дата основания не установлена. Рядом обнаружены «Лолинские могильники» (раскопки 1961–1964 гг. под руководством профессора У. Эрдниева) — дали название посткатакомбной «лолинской» археологической культуре.</p>
-      <h4>Факты</h4>
-      <p>Легенда связывает название с именем девушки — дочери зайсанга Балзанова. После депортации калмыков посёлок носил название «Санаторий 15 лет ВЛКСМ». Сегодня здесь — единственный в Калмыкии противотуберкулёзный санаторий-кумысолечебница.</p>
-      <h4>Личности</h4>
-      <p class="none">Достоверных сведений об известных личностях не зафиксировано.</p>
-    </div>
-  </details>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Нарын</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">Приютненский район, Калмыкия</p>
-      <h4>История</h4>
-      <p>Точная дата основания не установлена. До 1990-х действовал племенной животноводческий совхоз.</p>
-      <h4>Факты</h4>
-      <p>«Нарын» с калмыцкого — «солнце». Расположено на Ергенинской гряде. По переписи 2002 г. калмыки — 76% населения.</p>
-      <h4>Личности</h4>
-      <p class="none">Известных личностей не зафиксировано.</p>
-    </div>
-  </details>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Аршан</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">городской округ Элиста, 8,3 км южнее центра</p>
-      <h4>История</h4>
-      <p>Впервые фиксируется на немецкой карте 1941 г. как «Пригородная Аршань». Курорт на источниках основан ещё в 1920 г. для лечения раненых красноармейцев, спустя десятилетие получил статус курорта госзначения. В 1994 г. объединён с посёлком Солнечный.</p>
-      <h4>Факты</h4>
-      <p>«Аршан» с калмыцкого — «целебный источник», «святая живая вода». Памятник природы — родник «Прохлада». На территории — буддийский храм Сякюсн-Сюме. По переписи 2002 г. калмыки — 71% населения.</p>
-      <h4>Личности</h4>
-      <p class="none">Известных личностей не зафиксировано.</p>
-    </div>
-  </details>
-
-  <div class="group-label">Природа</div>
-
-  <details class="card type-nature">
-    <summary><span class="icon">🌿</span><span class="card-title">Озеро Маныч-Гудило</span><span class="flag">⚠️ съезд не уточнён</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">северная часть, район Туркменского/Апанасенковского округов</p>
-      <h4>История</h4>
-      <p>Гигантское солёное озеро протяжённостью ~150 км в Кумо-Манычской впадине — условной границе Европы и Азии. Геологически — реликт древнего океана Тетис. Для сохранения экосистемы созданы заповедник «Ростовский» (1995) и заказник краевого значения «Маныч-Гудило» (2010).</p>
-      <h4>Факты</h4>
-      <p>«Маныч» тюркского происхождения — «солёный/горький»; «Гудило» — от гудящего звука волн о берега при сильном ветре. Место обитания крупнейшей в России колонии розовых пеликанов; в заповеднике «Ростовский» — единственная в России вольная популяция одичавших лошадей.</p>
-      <h4>Личности</h4>
-      <p class="none">Известных личностей, персонально связанных с озером, не зафиксировано.</p>
-    </div>
-  </details>
-
-</section>
-
-<!-- ===================== LEG 4 ===================== -->
-<section class="leg" id="leg4">
-  <div class="leg-head"><span class="leg-num">4</span><h2>Элиста</h2></div>
+  <div class="leg-head"><span class="leg-num">1</span><h2>Элиста</h2></div>
   <p class="leg-sub">Столица Калмыкии — крупнейший центр буддийской культуры в Европе</p>
 
-  <div class="group-label">Населённые пункты</div>
+  <details class="stop" open><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Элиста</span><span class="km-badge">0 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="elista">🎧 Слушать</button>
+    <h4>История</h4><p>Основана в 1865 г. (первая землянка — 1862 г., основатель Степан Кийков). Название от калмыцкого «эльстя» — «песчаный». Город с 1930 г. Депортация калмыцкого народа в декабре 1943 г., автономия ликвидирована, город переименован в Степной. Восстановлена в 1957 г.</p>
+    <h4>Факты</h4><p>Крупнейший центр буддийской культуры в Европе. Принимала Всемирную шахматную олимпиаду 1998 г.</p>
+    <h4>Личности</h4><p>Степан Кийков — основатель. Кирсан Илюмжинов — президент Калмыкии (1993–2010) и ФИДЕ, определил современный облик города.</p>
 
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Элиста</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Основатель — бывший крепостной крестьянин Степан Кийков, построивший весной 1862 г. первую землянку в балке Элиста-Сале. К осени 1865 г. — 15 дворов, этот год официально считается годом основания. Название от калмыцкого «эльстя» — «песчаный». Город с 1930 г. Трагическая веха: 27–28 декабря 1943 г. калмыцкий народ депортирован в Сибирь, Казахстан и на Дальний Восток, Калмыцкая АССР ликвидирована, город переименован в Степной. Из 97–98 тыс. депортированных к 1950 г. умерло свыше 40 тыс. человек. 9 января 1957 г. автономия восстановлена, городу вернули имя.</p>
-      <h4>Факты</h4>
-      <p>Крупнейший центр буддийской культуры в Европе — больше храмов на душу населения, чем в любом другом российском городе. Принимал Всемирную шахматную олимпиаду 1998 г. 13 лет (1944–1957) носил название Степной.</p>
-      <h4>Личности</h4>
-      <p>Основатель — <b>Степан Кийков</b>. Современный облик города во многом определил <b>Кирсан Илюмжинов</b> (см. пункты ниже).</p>
-    </div>
-  </details>
+    <div class="nested"><div class="n-title">🏛️ Золотая обитель Будды Шакьямуни</div><p>Крупнейший буддийский храм Европы, 63 м, открыт в 2005 г. после визита Далай-ламы XIV в 2004 г.</p><button class="listen-btn small" data-chapter="zolotaya-obitel">🎧 Слушать</button></div>
+    <div class="nested"><div class="n-title">🏛️ Пагода Семи Дней</div><p>2005 г., барабан с 75 млн мантр — подарок к 70-летию Далай-ламы XIV.</p><button class="listen-btn small" data-chapter="pagoda-semi-dney">🎧 Слушать</button></div>
+    <div class="nested"><div class="n-title">🏛️ Золотые ворота «Алтн Босх»</div><p>1998 г., 15 м, 28 картин художника Николая Борисова.</p><button class="listen-btn small" data-chapter="zolotye-vorota">🎧 Слушать</button></div>
+    <div class="nested"><div class="n-title">🏛️ Сити-Чесс</div><p>1998 г., к шахматной олимпиаде, Дворец шахмат в форме кибитки.</p><button class="listen-btn small" data-chapter="siti-chess">🎧 Слушать</button></div>
+    <div class="nested"><div class="n-title">🏛️ Хурул Сякюсн-Сюме</div><p>Освящён Далай-ламой XIV в 1992 г., открыт в 1996 г.</p><button class="listen-btn small" data-chapter="khurul-syakusn-syume">🎧 Слушать</button></div>
+    <div class="nested"><div class="n-title">🏛️ Триумфальная арка</div><p>2012 г., к 200-летию победы над Наполеоном.</p><button class="listen-btn small" data-chapter="triumfalnaya-arka">🎧 Слушать</button></div>
+    <div class="nested"><div class="n-title">🏛️ Стела «Золотой Всадник»</div><p>2007 г., 8 м фигура на 15-метровой стеле, скульптор Николай Можаев.</p><button class="listen-btn small" data-chapter="zolotoy-vsadnik">🎧 Слушать</button></div>
+    <div class="nested"><div class="n-title">🏛️ Мемориал «Исход и возвращение»</div><p>1996 г., скульптор Эрнст Неизвестный, памяти депортации 1943 г.</p><button class="listen-btn small" data-chapter="memorial-iskhod">🎧 Слушать</button></div>
+  </div></details>
 
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Троицкое</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">Целинный район</p>
-      <h4>История</h4>
-      <p>Основано в 1862 г. под названием Булгун-Сала, у выхода родников, где была зимняя стоянка Большого хурула. Первыми поселенцами стали выходцы из Воронежской губернии. Название закрепилось позже — по преданию, в село привезли церковь из населённого пункта Троицкое.</p>
-      <h4>Факты</h4>
-      <p>С 16 сентября 1958 г. — административный центр Целинного района. В 1943 г. пережило депортацию, как вся Калмыкия.</p>
-      <h4>Личности</h4>
-      <p>Леонид Санжинов — заслуженный учитель РСФСР, преподавал в местной школе в 1933–1943 гг.; Николай Бахмутский — доктор медицинских наук, окончил троицкую школу с серебряной медалью в 1966 г. Широкой известности за пределами региона эти имена не имеют.</p>
-    </div>
-  </details>
-
-  <div class="group-label">Рукотворное</div>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Золотая обитель Будды Шакьямуни</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">крупнейший буддийский храм Европы, 63 м</p>
-      <h4>История</h4>
-      <p>Построен на месте бывшего завода ЖБИ после пастырского визита Далай-ламы XIV в Элисту в 2004 г. Строительство заняло 9 месяцев (авторы проекта — С. Курнеев, В. Гиляндиков, Л. Амнинов). Открыт 27 декабря 2005 г. — дата приурочена к национальному празднику Зул и годовщине депортации 1943 г.</p>
-      <h4>Факты</h4>
-      <p>Внутри — статуя Будды высотой 9 м, вторая по величине в России и Европе. Территорию окружают 108 буддийских ступ через каждые 5 м. Семь уровней: библиотека, музей, конференц-зал и молельный зал (дуган).</p>
-      <h4>Личности</h4>
-      <p><b>Далай-лама XIV</b> — визит 2004 г. стал поводом к строительству. <b>Кирсан Илюмжинов</b> — президент Калмыкии (1993–2010), инициировал и профинансировал стройку.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Пагода Семи Дней</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">площадь Ленина</p>
-      <h4>История</h4>
-      <p>Построена в 2005 г. по проекту архитектора А. Босчаева. Название — от семи будд, приходивших в мир согласно буддийскому учению.</p>
-      <h4>Факты</h4>
-      <p>Внутри — молитвенный барабан диаметром 1,2 м, весом 2 тонны, с 75 миллионами мантр «Ом мани падме хум» на тибетском, санскрите и калмыцком. Барабан — подарок лам монастыря Гьюмед (Индия) к 70-летию Далай-ламы XIV.</p>
-      <h4>Личности</h4>
-      <p><b>Далай-лама XIV</b> — барабан подарен в честь его юбилея. Архитектор — А. Босчаев.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Золотые ворота «Алтн Босх»</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Установлены в 1998 г. к Всемирной шахматной олимпиаде. Высота — 15 м, архитектура в традициях буддийского зодчества.</p>
-      <h4>Факты</h4>
-      <p>На арке — 28 картин художника Николая Борисова по истории калмыцкого народа и эпосу «Джангар». Ворота символически трактуются как «священный порог», очищающий проходящего через них.</p>
-      <h4>Личности</h4>
-      <p>Автор росписи — художник Николай Борисов.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Сити-Чесс (Город Шахмат)</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Построен к XXXIII Всемирной шахматной олимпиаде 1998 г. за полтора года (архитекторы С. Курнеев, Л. Амнинов, А. Босчаев). Центральный объект — Дворец шахмат, по форме напоминающий калмыцкую кибитку.</p>
-      <h4>Факты</h4>
-      <p>Расположен обособленно на юго-восточной окраине, стилистика напоминает европейский коттеджный посёлок. 5 апреля 2012 г. главная площадь названа в честь Илюмжинова.</p>
-      <h4>Личности</h4>
-      <p><b>Кирсан Илюмжинов</b> — президент Калмыкии (1993–2010) и президент ФИДЕ (1995–2010). Его решение провести олимпиаду в Элисте и пост главы ФИДЕ определили появление комплекса; он же позже финансировал Золотую обитель Будды.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Хурул Сякюсн-Сюме</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">«Геден Шеддуп Чойкорлинг», старый хурул</p>
-      <h4>История</h4>
-      <p>Решение о строительстве принято в 1989 г. Место освятил лично Далай-лама XIV в сентябре 1992 г. во время второго визита в Калмыкию, тогда же дал храму тибетское имя. Строительство велось 4 года на пожертвования жителей и средства К. Илюмжинова, открыт 5 октября 1996 г. Итоговый обряд освящения («раднай») Далай-лама XIV провёл лично 1 декабря 2004 г. — во время третьего визита.</p>
-      <h4>Факты</h4>
-      <p>До открытия Золотой обители Будды (2005) был крупнейшим буддийским храмом республики. Между освящением площадки (1992) и финальным ритуалом (2004) прошло 12 лет.</p>
-      <h4>Личности</h4>
-      <p><b>Далай-лама XIV</b> — дважды лично участвовал в судьбе хурула. <b>Кирсан Илюмжинов</b> — профинансировал строительство личными средствами. Архитектор — В. Гиляндиков.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Триумфальная арка (Южные ворота)</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">площадь Ленина</p>
-      <h4>История</h4>
-      <p>Возведена в 2012 г. к 200-летию победы над Наполеоном и в память об участии калмыцких конных полков во взятии Парижа.</p>
-      <h4>Факты</h4>
-      <p>Три пролёта, над ними — пагоды на восьми расписанных столбах. Роспись посвящена эпизодам военных побед калмыцкого народа.</p>
-      <h4>Личности</h4>
-      <p class="none">Конкретный архитектор или скульптор в источниках не назван.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Стела «Золотой Всадник»</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">въезд в город, 1-й микрорайон</p>
-      <h4>История</h4>
-      <p>Открыта 1 мая 2007 г. на 15-метровой стеле на искусственном кургане.</p>
-      <h4>Факты</h4>
-      <p>Восьмиметровая позолоченная фигура (~600 г сусального золота) — крупнейший позолоченный памятник в России. Изображает персонажа эпоса «Джангар»: всадник со знаменем и луком, рядом парит ястреб-помощник.</p>
-      <h4>Личности</h4>
-      <p>Автор — скульптор Николай Можаев (Ростов-на-Дону).</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Мемориал «Исход и возвращение»</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Открыт 29 декабря 1996 г. к годовщине депортации калмыцкого народа 28 декабря 1943 г. Архитектор — С. Курнеев, автор скульптуры — Эрнст Неизвестный. Бронзовую композицию отливали в Нью-Йорке.</p>
-      <h4>Факты</h4>
-      <p>Скульптурная группа на вершине кургана; комплекс дополняют вагон-теплушка (символ эшелонов депортации) и мемориальная табличка. Ежегодно 28 декабря здесь проходит день поминовения.</p>
-      <h4>Личности</h4>
-      <p><b>Эрнст Неизвестный</b> — скульптор-нонконформист, лауреат Госпремии РФ (1995), автор «Маски скорби» в Магадане памяти жертв ГУЛАГа; выбор мастера связан с его репутацией главного скульптора-летописца советских репрессий, а не с личной этнической связью с калмыками. Архитектор — С. Курнеев (соавтор Золотой обители Будды и Сити-Чесс).</p>
-    </div>
-  </details>
-
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Троицкое</span><span class="km-badge">15 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="troitskoe-elista">🎧 Слушать</button>
+    <h4>История</h4><p>Основано в 1862 г. как Булгун-Сала, на месте зимней стоянки Большого хурула. С 1958 г. — центр Целинного района.</p>
+    <h4>Факты</h4><p>Название — по церкви, привезённой из другого села. Пережило депортацию 1943 г.</p>
+    <h4>Личности</h4><p>Леонид Санжинов — заслуженный учитель РСФСР, преподавал здесь в 1933–1943 гг.</p>
+  </div></details>
 </section>
 
-<!-- ===================== LEG 5 ===================== -->
-<section class="leg" id="leg5">
-  <div class="leg-head"><span class="leg-num">5</span><h2>Элиста → Волгоград</h2></div>
+<!-- ===================== LEG 2: ЭЛИСТА → ВОЛГОГРАД ===================== -->
+<section class="leg" id="leg2">
+  <div class="leg-head"><span class="leg-num">2</span><h2>Элиста → Волгоград</h2></div>
   <p class="leg-sub">Калмыцкая степь, Сарпинские озёра, финиш в городе-герое</p>
 
-  <div class="group-label">Населённые пункты — Калмыкия</div>
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Кетченеры</span><span class="km-badge">75 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="ketcheneryi">🎧 Слушать</button>
+    <h4>История</h4><p>Первые дома — начало 1920-х вокруг новой школы. Историческое имя вернули в 1990 г.</p>
+    <h4>Факты</h4><p>Долина речки Амта-Бургуста, десятки пресных родников в солёной степи.</p>
+    <h4>Личности</h4><p class="none">Известных личностей не зафиксировано.</p>
+    <div class="nested nature"><div class="n-title">🌿 Родники Кетченеровского района</div><p>Свыше 50 родников вдоль долины Амта-Бургуста.</p><button class="listen-btn small" data-chapter="rodniki-ketchenery">🎧 Слушать</button></div>
+  </div></details>
 
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Кетченеры</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <h4>История</h4>
-      <p>Первые оседлые посёлки появились в 1921–1922 гг. вокруг новых школ — калмыки рода кетченер строили дома у школы в урочище Амта-Бургуста. 24 января 1938 г. образован Кетченеровский улус. После депортации район был упразднён, историческое название вернули 16 августа 1990 г., накануне 550-летия эпоса «Джангар».</p>
-      <h4>Факты</h4>
-      <p>Название — от калмыцкого (монгольского) «кетчи» («слуга при дворе»), по имени рода. Посёлок стоит в долине речки Амта-Бургуста, славящейся десятками пресных родников.</p>
-      <h4>Личности</h4>
-      <p class="none">Достоверно зафиксированных личностей, связанных именно с посёлком, не найдено.</p>
-    </div>
-  </details>
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Садовое</span><span class="km-badge">125 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="sadovoe">🎧 Слушать</button>
+    <h4>История</h4><p>Основано в 1849 г. на речке Амта-Зельмень. Центр Сарпинского района.</p>
+    <h4>Факты</h4><p>Третий по численности сельский пункт Калмыкии.</p>
+    <h4>Личности</h4><p class="none">Известных личностей не зафиксировано.</p>
+    <div class="nested nature"><div class="n-title">🌿 Сарпинские озёра</div><p>Цепь озёр ~180 км вдоль Ергеней, популярное место рыбалки.</p><button class="listen-btn small" data-chapter="sarpinskie-ozera">🎧 Слушать</button></div>
+  </div></details>
 
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Садовое</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">Сарпинский район</p>
-      <h4>История</h4>
-      <p>Основано в 1849 г. на речке Амта-Зельмень в рамках заселения дорог через Калмыцкую степь. 7 января 1939 г. стало центром Сарпинского района.</p>
-      <h4>Факты</h4>
-      <p>Третий по численности сельский населённый пункт Калмыкии после Троицкого и Яшкуля. Версия о происхождении названия от садоводства считается упрощённой.</p>
-      <h4>Личности</h4>
-      <p class="none">Достоверно подтверждённых личностей не обнаружено.</p>
-    </div>
-  </details>
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Малые Дербеты</span><span class="km-badge">165 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="malye-derbety">🎧 Слушать</button>
+    <h4>История</h4><p>Ставка нойона Чучей-тайши, дата основания — 1803 г. (день его смерти).</p>
+    <h4>Факты</h4><p>Лежит между озёрами Пришиб и Барманцак.</p>
+    <h4>Личности</h4><p>Велимир Хлебников — поэт-футурист, родился здесь в 1885 г.</p>
+    <div class="nested nature"><div class="n-title">🌿 Озеро Барманцак</div><p>Реликтовое солёное озеро к северу от села.</p><button class="listen-btn small" data-chapter="ozero-barmantsak">🎧 Слушать</button></div>
+    <div class="nested nature"><div class="n-title">🌿 Озеро Пришиб (Альматин)</div><p>Примыкает к селу с юго-востока, здесь была ставка нойонов Тундутовых.</p><button class="listen-btn small" data-chapter="ozero-prishib">🎧 Слушать</button></div>
+  </div></details>
 
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Малые Дербеты</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">центр Малодербетовского района</p>
-      <h4>История</h4>
-      <p>Возникло как ставка Малодербетовского улуса на реке Альмата, резиденция владельца улуса Чучей-тайши Тундутова. Датой основания принято считать 13 мая 1803 г. — день смерти Чучей-тайши.</p>
-      <h4>Факты</h4>
-      <p>Примыкает к озеру Пришиб (Альматин), севернее — озеро Барманцак. В 1866 г. открыта первая улусная школа.</p>
-      <h4>Личности</h4>
-      <p>Здесь 28 октября (9 ноября) 1885 г. родился поэт-футурист <b>Велимир Хлебников</b> — сын учёного-орнитолога В. А. Хлебникова. С селом также связан княжеский род <b>Тундутовых</b>, в т.ч. Данзан Тундутов (1888–1923) — атаман Астраханского казачьего войска в годы Гражданской войны.</p>
-    </div>
-  </details>
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Тундутово</span><span class="km-badge">180 км</span><span class="flag">⚠️ Калмыкия</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="tundutovo">🎧 Слушать</button>
+    <h4>История</h4><p>Заселение с 1848 г. Название по землям нойона Тундутова.</p>
+    <h4>Факты</h4><p>Малодербетовский район Калмыкии, не Волгоградская область (частая путаница из-за тёзки).</p>
+    <h4>Личности</h4><p class="none">Известных личностей не зафиксировано.</p>
+  </div></details>
 
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Тундутово</span><span class="flag">⚠️ Калмыкия, не Волгоградская обл.</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">Малодербетовский район, Калмыкия</p>
-      <h4>История</h4>
-      <p>Заселение началось весной 1848 г. переселенцами из астраханских сёл Райгородского, Солодников, Дубового Оврага и Цацы. Название — по соседству с владениями нойона Тундутова. С 1854 г. — центр Тундутовской волости.</p>
-      <h4>Факты</h4>
-      <p>В 1851 г. разбит первый сад. По переписи 1855 г. — 59 русских и 16 калмыцких семей, пример смешанного поселения.</p>
-      <h4>Личности</h4>
-      <p>Название связано с нойонским родом Тундутовых.</p>
-    </div>
-  </details>
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Плодовитое</span><span class="km-badge">190 км</span><span class="flag">⚠️ Калмыкия</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="plodovitoe">🎧 Слушать</button>
+    <h4>История</h4><p>Основано в 1849 г. переселенцами из Воронежской губернии. Статус села — с 1876 г.</p>
+    <h4>Факты</h4><p>Малодербетовский район Калмыкии, не Волгоградская область.</p>
+    <h4>Личности</h4><p class="none">Известных личностей не зафиксировано.</p>
+  </div></details>
 
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Плодовитое</span><span class="flag">⚠️ Калмыкия, не Волгоградская обл.</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">Малодербетовский район, Калмыкия</p>
-      <h4>История</h4>
-      <p>Основано в 1849 г. переселенцами из Воронежской губернии на землях урочища Уласта. Статус села — с 1876 г.</p>
-      <h4>Факты</h4>
-      <p>Расположено в долине реки Средняя Ласта, в 38 км северо-западнее Малых Дербет. По воспоминаниям жителей, в оккупацию в ВОВ здесь расстреляно 115 человек.</p>
-      <h4>Личности</h4>
-      <p class="none">Известных личностей не зафиксировано.</p>
-    </div>
-  </details>
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Цаца</span><span class="km-badge">230 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="tsatsa">🎧 Слушать</button>
+    <h4>История</h4><p>Основано в 1785 г. Название от калмыцкого «цаца» — часовня/подношение.</p>
+    <h4>Факты</h4><p>У южной оконечности единственного пресного озера в цепи Сарпинских. Линия фронта здесь в 1942 г.</p>
+    <h4>Личности</h4><p class="none">Известных личностей не зафиксировано.</p>
+  </div></details>
 
-  <div class="group-label">Населённые пункты — Волгоградская область</div>
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Дубовый Овраг</span><span class="km-badge">250 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="dubovyi-ovrag">🎧 Слушать</button>
+    <h4>История</h4><p>Возник в XVIII в. как хотон Хар-Модн. Официально село с 1818 г.</p>
+    <h4>Факты</h4><p>К 1914 г. — почти 3500 жителей.</p>
+    <h4>Личности</h4><p class="none">Известных личностей не зафиксировано.</p>
+    <div class="nested"><div class="n-title">🏛️ Храм Никиты Великомученика</div><p>Заложен в 1903 г. к 300-летию Дома Романовых.</p><button class="listen-btn small" data-chapter="khram-nikity">🎧 Слушать</button></div>
+  </div></details>
 
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Цаца</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">Светлоярский район</p>
-      <h4>История</h4>
-      <p>Основано в 1785 г., название — от калмыцкого «цаца» (буддийская часовня/подношение). С 1935 г. в составе Красноармейского (позже Светлоярского) района.</p>
-      <h4>Факты</h4>
-      <p>Стоит у южной оконечности озера Цаца — единственного пресного в цепи Сарпинских озёр. Осенью 1942 г., в Сталинградскую битву, здесь проходила линия фронта. В братской могиле захоронен 461 участник Гражданской и Великой Отечественной войн.</p>
-      <h4>Личности</h4>
-      <p class="none">Известных личностей не зафиксировано.</p>
-    </div>
-  </details>
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Большие Чапурники</span><span class="km-badge">265 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="bolshie-chapurniki">🎧 Слушать</button>
+    <h4>История</h4><p>Основано около 1785 г. С 1935 по 1949 г. — центр Красноармейского района.</p>
+    <h4>Факты</h4><p>После расширения Сталинграда в 1931 г. недолго было райцентром.</p>
+    <h4>Личности</h4><p class="none">Известных личностей не зафиксировано.</p>
+    <div class="nested"><div class="n-title">🏛️ Мечеть Махалля №65</div><p>Старейшая деревянная мечеть Нижнего Поволжья, спорная дата постройки (XVIII в.). В Малых Чапурниках, 1–2 км от трассы.</p><button class="listen-btn small" data-chapter="mechet-makhallya">🎧 Слушать</button></div>
+  </div></details>
 
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Дубовый Овраг</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">Светлоярский район</p>
-      <h4>История</h4>
-      <p>Возник в XVIII в. как калмыцкий хотон Хар-Модн («чёрное дерево») на озере Сарпа. Официальная дата основания села — 1818 г., переселенцы из Тамбовской, Воронежской, Тульской, Рязанской губерний. К 1914 г. — 495 дворов, свыше 3400 жителей.</p>
-      <h4>Факты</h4>
-      <p>Православная церковь действовала с 1859 г.; каменный храм Никиты Мученика заложен в 1903 г. (см. ниже). В 1872 г. открыта одна из первых школ Светлоярской волости.</p>
-      <h4>Личности</h4>
-      <p class="none">Известных личностей не зафиксировано.</p>
-    </div>
-  </details>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Большие Чапурники</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">Светлоярский район</p>
-      <h4>История</h4>
-      <p>Основано около 1785 г. переселенцами из Ярзовки Царицынского уезда. В 1817 г. устроен молитвенный дом, в 1847 г. началось строительство церкви.</p>
-      <h4>Факты</h4>
-      <p>После расширения Сталинграда в 1931 г. недолго было райцентром; в 1935–1949 гг. — центр Красноармейского района. В 1950 г. райцентр перенесли в Светлый Яр.</p>
-      <h4>Личности</h4>
-      <p class="none">Известных личностей не зафиксировано.</p>
-    </div>
-  </details>
-
-  <details class="card type-place">
-    <summary><span class="icon">🏘️</span><span class="card-title">Волгоград</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">финиш маршрута</p>
-      <h4>История</h4>
-      <p>Основан в июле 1589 г. как крепость Царицын на слиянии Волги и речки Царицы. 10 апреля 1925 г. переименован в Сталинград. С 17 июля 1942 по 2 февраля 1943 г. — Сталинградская битва, крупнейшее сухопутное сражение в истории и перелом Второй мировой войны: свыше 90% застройки уничтожено, но окружение и разгром 6-й немецкой армии стали началом коренного перелома в войне. 10 ноября 1961 г. город получил имя Волгоград.</p>
-      <h4>Факты</h4>
-      <p>Мемориал на Мамаевом кургане со статуей «Родина-мать зовёт!» (1967) — одна из самых высоких скульптур в мире. Единственный современный российский город, трижды менявший имя.</p>
-      <h4>Личности</h4>
-      <p>Оборону возглавляли <b>Василий Чуйков</b> — командующий 62-й армией, дважды Герой Советского Союза, и <b>Александр Родимцев</b> — командир 13-й гвардейской стрелковой дивизии. Со стороны вермахта город связан с именем <b>Фридриха Паулюса</b>, командующего 6-й армией, капитулировавшего 31 января 1943 г.</p>
-    </div>
-  </details>
-
-  <div class="group-label">Природа</div>
-
-  <details class="card type-nature">
-    <summary><span class="icon">🌿</span><span class="card-title">Кумо-Манычская впадина</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">вдоль трассы Элиста–Троицкое–Кетченеры</p>
-      <h4>История</h4>
-      <p>Тектоническая впадина, связанная с древним разломом между валом Карпинского и Ставропольским сводом. 15–17 тыс. лет назад служила проливом между бассейнами Чёрного и Каспийского морей.</p>
-      <h4>Факты</h4>
-      <p>По впадине проходит один из признанных вариантов условной границы между Европой и Азией — трасса пересекает символический континентальный рубеж. Тянется полосой 1–30 км шириной более 500 км между Азовским и Каспийским морями.</p>
-      <h4>Личности</h4>
-      <p class="none">Известных личностей не зафиксировано.</p>
-    </div>
-  </details>
-
-  <details class="card type-nature">
-    <summary><span class="icon">🌿</span><span class="card-title">Родники Кетченеровского района</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">долина речки Амта-Бургуста</p>
-      <h4>История</h4>
-      <p>Родники привлекали ещё первых поселенцев 1920-х — дома строились у источников пресной воды в засушливой степи.</p>
-      <h4>Факты</h4>
-      <p>Свыше 50 родников тянутся цепью на десятки километров — от Кегульты через Годжур, Ергени, Гашун-Бургусту, Кетченеры до Шин-Мера.</p>
-      <h4>Личности</h4>
-      <p><b>Георгий Высоцкий</b> — русский и советский учёный-почвовед и лесовод, отмечавший высокие вкусовые качества воды в балке Амта-Бургуста во время экспедиций по калмыцкой степи.</p>
-    </div>
-  </details>
-
-  <details class="card type-nature">
-    <summary><span class="icon">🌿</span><span class="card-title">Озеро Барманцак</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">к северу от Малых Дербетов</p>
-      <h4>История</h4>
-      <p>Реликтовый водоём, сформировавшийся в ходе нижнехвалынской трансгрессии Каспийского моря. Входит в систему Сарпинских озёр.</p>
-      <h4>Факты</h4>
-      <p>Площадь — около 25,8 км², питается реками Дальняя Ласта и Грязная, солёное. В ВОВ окрестности были ареной боёв на дальних подступах к Сталинграду.</p>
-      <h4>Личности</h4>
-      <p class="none">Известных личностей не зафиксировано.</p>
-    </div>
-  </details>
-
-  <details class="card type-nature">
-    <summary><span class="icon">🌿</span><span class="card-title">Озеро Пришиб (Альматин)</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">примыкает к Малым Дербетам с юго-востока</p>
-      <h4>История</h4>
-      <p>Реликтовый водоём Сарпинской низменности; с давних времён определял выбор места для ставки Малодербетовского улуса — резиденция нойонов Тундутовых основана именно на его берегу.</p>
-      <h4>Факты</h4>
-      <p>Малые Дербеты оказываются между двумя озёрами — Пришибом на юго-востоке и Барманцаком на севере. Высота местности — всего 7 м над уровнем моря.</p>
-      <h4>Личности</h4>
-      <p class="none">Известных личностей не зафиксировано.</p>
-    </div>
-  </details>
-
-  <details class="card type-nature">
-    <summary><span class="icon">🌿</span><span class="card-title">Сарпинские озёра</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">граница Калмыкии и Волгоградской области</p>
-      <h4>История</h4>
-      <p>Цепь озёр реликтового происхождения протянулась почти на 180 км вдоль восточного подножия Ергеней. По одной версии, калмыки, переселившиеся сюда в 1650-х, застали уже сложившуюся цепочку озёр на месте некогда протекавшей реки.</p>
-      <h4>Факты</h4>
-      <p>Заполняются только осадками и весенним паводком, летом мелеют; минерализация растёт с севера на юг — только озеро Цаца остаётся пресным. Не охраняемая территория — популярное место рыбалки (окунь, карп, карась, линь), охоты и пикников для местных жителей.</p>
-      <h4>Личности</h4>
-      <p class="none">Известных личностей не зафиксировано.</p>
-    </div>
-  </details>
-
-  <div class="group-label">Рукотворное</div>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Одинокий тополь с каскадом родников</span><span class="flag">⚠️ сломан в 2025</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">46.2805, 44.0112 · Целинный район</p>
-      <h4>История</h4>
-      <p>Памятник природы на склоне хребта Хамур, 5 км от посёлка Хар-Булук. По легенде, тополь вырос из посоха буддийского монаха Пурдаш-бакши Джунгруева, вернувшегося из паломничества в Тибет — в надрезе посоха он привёз семена, закопал на самой высокой точке возвышенности. По другой версии, дерево посадил в 1846 г. лесник Леонтий Диканский. Дерево на голой степи у родников стало местом паломничества калмыцких буддистов. В 2013 г. рядом установлены ступа и восемь малых ступ. В 2019 г. тополь получил звание «Дерево года» в России.</p>
-      <h4>Факты</h4>
-      <p><b>Текущее состояние: в начале июля 2025 г. сильный порыв ветра обломил последнюю крупную ветвь — от векового дерева остался только пень.</b> Корневая система жива, пошли молодые побеги; специалисты полагают, что через 4–5 лет из них могут вырасти новые ветви. Каскад родников с лечебной квасцовой водой и восемь буддийских ступ не пострадали и продолжают действовать как место паломничества.</p>
-      <h4>Личности</h4>
-      <p><b>Пурдаш-бакши Джунгруев</b> — буддийский лама, с чьим паломничеством в Тибет народная легенда связывает происхождение дерева.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Храм Никиты Великомученика</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">Дубовый Овраг</p>
-      <h4>История</h4>
-      <p>Каменный храм заложен 4 мая 1903 г. в честь 300-летия Дома Романовых (отмечалось в 1913 г.) по проекту московского архитектора Л. П. Бетелева. Освящён в 1913 г.</p>
-      <h4>Факты</h4>
-      <p>Эклектика: двухэтажный объём с трапезной, четырёхскатной кровлей, восьмигранным световым барабаном и луковичной главой. Стены из красного кирпича, облицованы песчаником. Полностью отреставрирован, памятник архитектуры регионального значения, богослужения регулярны.</p>
-      <h4>Личности</h4>
-      <p>Архитектор — <b>Леонид Бетелев</b>.</p>
-    </div>
-  </details>
-
-  <details class="card type-landmark">
-    <summary><span class="icon">🏛️</span><span class="card-title">Мечеть Махалля №65</span><span class="flag">⚠️ дата спорна</span><span class="chev">▾</span></summary>
-    <div class="card-body">
-      <p class="card-meta">Малые (Большие) Чапурники · старейшая деревянная мечеть Нижнего Поволжья</p>
-      <h4>История</h4>
-      <p>Дата постройки спорная: по одним данным — около 1743–1750 гг. (татарская община подавала прошение Екатерине II около 1750 г.), по другим источники говорят о «более 260 годах» на момент публикаций 2010-х. В 2010 г. в селе праздновали 250-летие мечети, что указывает на постройку около 1760 г. Единой достоверной даты нет — версии расходятся в пределах нескольких десятилетий XVIII века.</p>
-      <h4>Факты</h4>
-      <p>Старейшее сохранившееся деревянное культовое сооружение Нижнего Поволжья. Сруб 3,5×7 м собран без единого гвоздя. Архитектурная особенность — минарет установлен прямо на крыше, а не отдельной башней. В 1945 г. сильный ветер повредил минарет.</p>
-      <h4>Личности</h4>
-      <p><b>Али Рамазан</b> — местный плотник, восстановивший повреждённый ветром минарет в 1945 г.</p>
-    </div>
-  </details>
-
-  <div class="note warn">
-    <b>Важно перед поездкой.</b> Село Малые Чапурники, где стоит мечеть, находится в 1–2 км в стороне от основной трассы, а не прямо на ней — учитывайте это при планировании заезда.
-  </div>
-
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Волгоград</span><span class="km-badge">293 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="volgograd">🎧 Слушать</button>
+    <h4>История</h4><p>Основан в июле 1589 г. как крепость Царицын. Сталинград с 1925 г. Сталинградская битва 17.07.1942–02.02.1943 — крупнейшее сухопутное сражение в истории. Современное имя с 1961 г.</p>
+    <h4>Факты</h4><p>Свыше 90% застройки уничтожено в войну. Единственный российский город, трижды менявший имя.</p>
+    <h4>Личности</h4><p>Василий Чуйков — командующий 62-й армией, дважды Герой Советского Союза; Александр Родимцев — командир 13-й гвардейской дивизии.</p>
+    <div class="nested"><div class="n-title">🏛️ Мамаев курган / «Родина-мать зовёт!»</div><p>Мемориал 1967 г., статуя высотой 85 м — одна из самых высоких в мире.</p><button class="listen-btn small" data-chapter="mamaev-kurgan">🎧 Слушать</button></div>
+  </div></details>
 </section>
 
-<a class="top-link" href="volgograd-samara.html" style="background:var(--gold);color:#fff;padding:12px 18px;border-radius:12px;font-weight:700;">Продолжение маршрута: Волгоград → Самара →</a>
+<!-- ===================== LEG 3: ВОЛГОГРАД → КАМЫШИН ===================== -->
+<section class="leg" id="leg3">
+  <div class="leg-head"><span class="leg-num">3</span><h2>Волгоград → Камышин</h2></div>
+  <p class="leg-sub">Приволжские сёла, казачьи станицы, «арбузная столица» Поволжья</p>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Орловка</span><span class="km-badge">313 км</span><span class="flag">⚠️ 1 источник</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="orlovka">🎧 Слушать</button>
+    <h4>История</h4><p>Основана в 1780–90-х как Собачья балка. С 1873 г. — церковь, с 1883 г. — училище.</p>
+    <h4>Факты</h4><p>В 1942 г. линия фронта прошла через село четырежды — окончательно освобождено в январе 1943 г.</p>
+    <h4>Личности</h4><p class="none">Известных личностей не зафиксировано.</p>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Ерзовка</span><span class="km-badge">323 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="erzovka">🎧 Слушать</button>
+    <h4>История</h4><p>Слобода рубежа XVIII–XIX вв., изначально Нижняя Пичуга.</p>
+    <h4>Факты</h4><p>23 августа 1942 г. здесь немецкий 14-й танковый корпус первым вышел к Волге севернее Сталинграда.</p>
+    <h4>Личности</h4><p class="none">Известных личностей не зафиксировано.</p>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Пичуга</span><span class="km-badge">333 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="pichuga">🎧 Слушать</button>
+    <h4>История</h4><p>Основана в 1783 г. волжскими казаками, многие — участники восстания Пугачёва.</p>
+    <h4>Факты</h4><p>В 1942 г. немцы не дошли до села 6 км — тыловой рубеж обороны Сталинграда.</p>
+    <h4>Личности</h4><p>Николай Китаев — Герой Советского Союза; Павел Мордвинцев — генерал-лейтенант, уроженцы села.</p>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Дубовка</span><span class="km-badge">345 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="dubovka">🎧 Слушать</button>
+    <h4>История</h4><p>Заложена в 1734 г. как сторожевая крепость. В XIX в. — купеческий посад, превосходивший по числу жителей Царицын.</p>
+    <h4>Факты</h4><p>Более 20 заводов к середине XIX в. Осталась в тылу в 1942 г. — сохранился ансамбль купеческой застройки.</p>
+    <h4>Личности</h4><p class="none">Известных личностей не зафиксировано.</p>
+    <div class="nested nature"><div class="n-title">🌿 Дуб-патриарх</div><p>Старинный дуб ~18 м, памятник природы федерального значения.</p><button class="listen-btn small" data-chapter="dub-patriarkh">🎧 Слушать</button></div>
+    <div class="nested"><div class="n-title">🏛️ Свято-Вознесенский монастырь</div><p>Основан в 1871 г., в 2 км западнее города.</p><button class="listen-btn small" data-chapter="voznesensky-monastyr">🎧 Слушать</button></div>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Оленье</span><span class="km-badge">361 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="olenye">🎧 Слушать</button>
+    <h4>История</h4><p>Название с 1882 г. Село разделено Оленьим заливом — трасса идёт по мосту через залив.</p>
+    <h4>Факты</h4><p>Название, по легенде, от двух балок, похожих на оленьи рога.</p>
+    <h4>Личности</h4><p>Пётр Янцев — Герой Советского Союза; Яков Вровский — генерал-майор, уроженцы села.</p>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Антиповка</span><span class="km-badge">391 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="antipovka">🎧 Слушать</button>
+    <h4>История</h4><p>Основана в 1734 г. как казачья станица Зимовая. В 1777 г. Волжское казачье войско упразднено.</p>
+    <h4>Факты</h4><p>Жители остались лично свободными несмотря на потерю казачьего статуса.</p>
+    <h4>Личности</h4><p class="none">Известных личностей не зафиксировано.</p>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Камышин</span><span class="km-badge">441 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="kamyshin">🎧 Слушать</button>
+    <h4>История</h4><p>Крепость 1668 г. В 1697 г. город посетил Пётр I, затеявший канал Волга–Дон. С 1780 г. — Камышин.</p>
+    <h4>Факты</h4><p>«Арбузная столица» Поволжья. Ежегодный арбузный фестиваль.</p>
+    <h4>Личности</h4><p>Алексей Маресьев — лётчик, Герой Советского Союза, прототип героя «Повести о настоящем человеке», уроженец города.</p>
+    <div class="nested"><div class="n-title">🏛️ Музей А. П. Маресьева</div><p>Открыт в 2016 г., набережная Камышина.</p><button class="listen-btn small" data-chapter="muzey-maresyeva">🎧 Слушать</button></div>
+    <div class="nested nature"><div class="n-title">🌿 Камышинские горы Уши и Лоб</div><p>Отпечатки третичной флоры возрастом 60+ млн лет.</p><button class="listen-btn small" data-chapter="gory-ushi-lob">🎧 Слушать</button></div>
+    <div class="nested nature"><div class="n-title">🌿 Природный парк «Щербаковский»</div><p>~40 км выше по течению — скалы «Столбичи», пещеры Уракова бугра.</p><button class="listen-btn small" data-chapter="park-scherbakovsky">🎧 Слушать</button></div>
+  </div></details>
+</section>
+
+<!-- ===================== LEG 4: КАМЫШИН → САРАТОВ ===================== -->
+<section class="leg" id="leg4">
+  <div class="leg-head"><span class="leg-num">4</span><h2>Камышин → Саратов</h2></div>
+  <p class="leg-sub">Земли немцев Поволжья — колонии, депортация, память</p>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Усть-Грязнуха</span><span class="km-badge">491 км</span><span class="flag">⚠️ Волгоградская обл.</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="ust-gryaznukha">🎧 Слушать</button>
+    <h4>История</h4><p>Основана в 1767 г. как немецкая колония Гебель. Переименована в 1768 г.</p>
+    <h4>Факты</h4><p>Голод 1921–22 гг., депортация немцев в сентябре 1941 г.</p>
+    <h4>Личности</h4><p class="none">Известных личностей не зафиксировано.</p>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Красноармейск</span><span class="km-badge">541 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="krasnoarmeysk">🎧 Слушать</button>
+    <h4>История</h4><p>Основан в 1765 г. как колония Бальцер (Голый Карамыш). Переименован в 1942 г.</p>
+    <h4>Факты</h4><p>Кирха 1849–51 гг. (руины после пожара 2004 г.). Единственная в области действующая узкоколейка.</p>
+    <h4>Личности</h4><p>Яков Вебер — художник, уроженец города.</p>
+    <div class="nested"><div class="n-title">🏛️ Краеведческий музей</div><p>Филиал с 1987 г., ~9 тыс. экспонатов о немецком Поволжье.</p><button class="listen-btn small" data-chapter="muzey-krasnoarmeysk">🎧 Слушать</button></div>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Луганское</span><span class="km-badge">561 км</span><span class="flag">⚠️ рядом с трассой</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="luganskoe">🎧 Слушать</button>
+    <h4>История</h4><p>Основано в 1764 г. как колония Байдек — одна из первых 5 немецких колоний Поволжья.</p>
+    <h4>Факты</h4><p>После депортации 1941 г. заселено украинцами из-под Луганска.</p>
+    <h4>Личности</h4><p class="none">Известных личностей не зафиксировано.</p>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Сергиевский</span><span class="km-badge">581 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="sergievsky">🎧 Слушать</button>
+    <h4>История</h4><p>Посёлок и совхоз образованы в 1953 г. на месте дореволюционных хуторов.</p>
+    <h4>Факты</h4><p>В 1941–42 гг. здесь стояла зенитная точка ПВО Саратова.</p>
+    <h4>Личности</h4><p>Вера Александрова — народный учитель СССР; Нина Володина — заслуженный учитель РФ.</p>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Ивановский</span><span class="km-badge">593 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="ivanovsky">🎧 Слушать</button>
+    <h4>История</h4><p>Основан в 1910 г. Железнодорожная остановка Саратов — Петров Вал.</p>
+    <h4>Факты</h4><p>Рядом полигон «Широкий Карамыш».</p>
+    <h4>Личности</h4><p>Валерий Таратун — старший лейтенант, погиб в Афганистане, мемориальная доска в посёлке.</p>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Саратов</span><span class="km-badge">615 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="saratov">🎧 Слушать</button>
+    <h4>История</h4><p>Основан в 1590 г. как крепость. До конца 1920-х — крупнейший город Поволжья.</p>
+    <h4>Факты</h4><p>12 апреля 1961 г. под Саратовом приземлился Гагарин после первого полёта в космос.</p>
+    <h4>Личности</h4><p>Николай Чернышевский — писатель, уроженец; Пётр Столыпин — губернатор 1903–06; Николай Вавилов — генетик; Олег Табаков — актёр, уроженец.</p>
+    <div class="nested"><div class="n-title">🏛️ Набережная Космонавтов и мост</div><p>Мост 1965 г. — самый длинный в Европе на момент постройки.</p><button class="listen-btn small" data-chapter="naberezhnaya-kosmonavtov">🎧 Слушать</button></div>
+    <div class="nested"><div class="n-title">🏛️ Музей им. Радищева</div><p>1885 г. — первый общедоступный художественный музей российской провинции.</p><button class="listen-btn small" data-chapter="muzey-radischeva">🎧 Слушать</button></div>
+  </div></details>
+</section>
+
+<!-- ===================== LEG 5: САРАТОВ → ХВАЛЫНСК ===================== -->
+<section class="leg" id="leg5">
+  <div class="leg-head"><span class="leg-num">5</span><h2>Саратов → Хвалынск</h2></div>
+  <p class="leg-sub">АССР немцев Поволжья, ГЭС, закрытый город, меловые горы</p>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Энгельс</span><span class="km-badge">625 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="engels">🎧 Слушать</button>
+    <h4>История</h4><p>Основан в 1747 г. как Покровская слобода. В 1922–41 гг. — столица АССР немцев Поволжья.</p>
+    <h4>Факты</h4><p>Мост с Саратовом (1965). Крупная авиабаза стратегической авиации.</p>
+    <h4>Личности</h4><p>Марина Раскова — лётчица; Лев Кассиль — писатель, детство здесь.</p>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Маркс</span><span class="km-badge">685 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="marks">🎧 Слушать</button>
+    <h4>История</h4><p>Основан в 1765 г. как Екатериненштадт. Переименован в Маркс в 1920 г.</p>
+    <h4>Факты</h4><p>В голод 1921–22 гг. здесь работала хлебная миссия Фритьофа Нансена.</p>
+    <h4>Личности</h4><p>Фритьоф Нансен — норвежский исследователь, организовал гуманитарную помощь.</p>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Приволжское</span><span class="km-badge">703 км</span><span class="flag">⚠️ 1 источник</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="privolzhskoe">🎧 Слушать</button>
+    <h4>История</h4><p>Основано в 1766 г. как колония Борегардт.</p>
+    <h4>Факты</h4><p>Быстро восстановило население после депортации 1941 г.</p>
+    <h4>Личности</h4><p class="none">Известных личностей не зафиксировано.</p>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Балаково</span><span class="km-badge">793 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="balakovo">🎧 Слушать</button>
+    <h4>История</h4><p>Заселено старообрядцами по манифесту 1762 г. Город с 1911 г.</p>
+    <h4>Факты</h4><p>1888 г. — первый в мире гусеничный трактор (Фёдор Блинов). Саратовская ГЭС здесь.</p>
+    <h4>Личности</h4><p>Василий Чапаев — вторая родина, дом-музей; Фёдор Блинов — изобретатель трактора.</p>
+    <div class="nested"><div class="n-title">🏛️ Свято-Троицкий храм</div><p>1910–14 гг., проект архитектора Фёдора Шехтеля.</p><button class="listen-btn small" data-chapter="troitsky-khram-balakovo">🎧 Слушать</button></div>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Шиханы</span><span class="km-badge">823 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="shikhany">🎧 Слушать</button>
+    <h4>История</h4><p>Усадьба графа Орлова-Денисова (1820). С 1923 г. — химический полигон.</p>
+    <h4>Факты</h4><p>Институт ГИТОС связывают с разработкой «Новичка». Статус ЗАТО снят в 2019 г.</p>
+    <h4>Личности</h4><p>Василий Орлов-Денисов — герой Отечественной войны 1812 г.</p>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Вольск</span><span class="km-badge">838 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="volsk">🎧 Слушать</button>
+    <h4>История</h4><p>Слобода Малыковка с 1699 г., уездный город с 1780 г.</p>
+    <h4>Факты</h4><p>Один из главных центров цементной промышленности России. 50+ Героев Советского Союза родом отсюда.</p>
+    <h4>Личности</h4><p>Виктор Талалихин — лётчик, Герой Советского Союза; Николай Семёнов — будущий нобелевский лауреат.</p>
+    <div class="nested"><div class="n-title">🏛️ Гостиный ряд Злобина</div><p>Колоннада на целый квартал.</p><button class="listen-btn small" data-chapter="gostiny-ryad-volsk">🎧 Слушать</button></div>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Хвалынск</span><span class="km-badge">878 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="khvalynsk">🎧 Слушать</button>
+    <h4>История</h4><p>Известен с 1556 г. Название от древнего имени Каспия. Центр старообрядчества и садоводства.</p>
+    <h4>Факты</h4><p>Меловые горы с реликтовыми соснами. Горнолыжный курорт и термальные источники.</p>
+    <h4>Личности</h4><p>Кузьма Петров-Водкин — художник, родился здесь в 1878 г.; Сергей Наровчатов — поэт.</p>
+    <div class="nested nature"><div class="n-title">🌿 Нацпарк «Хвалынский»</div><p>С 1994 г., меловые горы, тропа к «Пещере монаха».</p><button class="listen-btn small" data-chapter="nacpark-khvalynsky">🎧 Слушать</button></div>
+  </div></details>
+</section>
+
+<!-- ===================== LEG 6: ХВАЛЫНСК → СЫЗРАНЬ ===================== -->
+<section class="leg" id="leg6">
+  <div class="leg-head"><span class="leg-num">6</span><h2>Хвалынск → Сызрань</h2></div>
+  <p class="leg-sub">Малолюдный участок вдоль водохранилища, купеческая Сызрань</p>
+
+  <div class="note warn">Часть мелких сёл в исходном задании не подтвердилась достоверными источниками и была честно исключена агентом-исследователем — приведены только проверенные точки.</div>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Возрождение</span><span class="km-badge">914 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="vozrozhdenie">🎧 Слушать</button>
+    <h4>История</h4><p>Возник в 1942 г. на стыке ж/д линии Сызрань — Сенная, строившейся для нужд обороны.</p>
+    <h4>Факты</h4><p>Растянут на 7 км вдоль путей. Завод «Электрофидер».</p>
+    <h4>Личности</h4><p class="none">Известных личностей не зафиксировано.</p>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Чёрный Затон</span><span class="km-badge">929 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="cherny-zaton">🎧 Слушать</button>
+    <h4>История</h4><p>Известно с 1859 г., тогда 130 дворов, церковь и 3 мельницы.</p>
+    <h4>Факты</h4><p>Чернозатонские горы — крутой обрыв к Волге. Население упало до менее 100 человек.</p>
+    <h4>Личности</h4><p class="none">Известных личностей не зафиксировано.</p>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Сызрань</span><span class="km-badge">1018 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="syzran">🎧 Слушать</button>
+    <h4>История</h4><p>Основана в 1683 г. как крепость воеводы Григория Козловского. Здесь трасса переходит с Р228 на М5.</p>
+    <h4>Факты</h4><p>После пожара 1906 г. отстроена в стиле модерн. Была 4-м городом империи по переработке зерна.</p>
+    <h4>Личности</h4><p>Александр Песков — актёр; Иван Демидов — телеведущий; Василий Болдырев — генерал, уроженцы города.</p>
+    <div class="nested"><div class="n-title">🏛️ Сызранский кремль / Спасская башня</div><p>1683 г. — старейшее сохранившееся здание Самарской области.</p><button class="listen-btn small" data-chapter="syzran-kreml">🎧 Слушать</button></div>
+    <div class="nested"><div class="n-title">🏛️ Казанский собор</div><p>1866–72 гг., пережил пожар и советское закрытие.</p><button class="listen-btn small" data-chapter="kazanskiy-sobor">🎧 Слушать</button></div>
+  </div></details>
+</section>
+
+<!-- ===================== LEG 7: СЫЗРАНЬ → САМАРА ===================== -->
+<section class="leg" id="leg7">
+  <div class="leg-head"><span class="leg-num">7</span><h2>Сызрань → Самара</h2></div>
+  <p class="leg-sub">Жигулёвские горы, новый мост через Волгу, финиш путешествия</p>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Троицкое</span><span class="km-badge">1033 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="troitskoe">🎧 Слушать</button>
+    <h4>История</h4><p>Основано в начале XVIII в. семьёй воевод Дмитриевых. Троицкая церковь 1731 г.</p>
+    <h4>Факты</h4><p>Официальная точка начала трассы «Обход Тольятти» с мостом через Волгу.</p>
+    <h4>Личности</h4><p>Иван Дмитриев — поэт-баснописец, министр юстиции при Александре I, родился здесь.</p>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Жигулёвск</span><span class="km-badge">1063 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="zhigulevsk">🎧 Слушать</button>
+    <h4>История</h4><p>Возник при строительстве Жигулёвской ГЭС (1950–57), город с 1952 г.</p>
+    <h4>Факты</h4><p>Развилка: старая трасса через плотину ГЭС или новый «Обход Тольятти» (мост у Климовки, июль 2024).</p>
+    <h4>Личности</h4><p class="none">Известных личностей не зафиксировано.</p>
+    <div class="nested nature"><div class="n-title">🌿 Жигулёвские горы / Самарская Лука</div><p>Единственные тектонические горы Восточно-Европейской равнины, биосферный резерват ЮНЕСКО.</p><button class="listen-btn small" data-chapter="zhigulevskie-gory">🎧 Слушать</button></div>
+    <div class="nested"><div class="n-title">🏛️ Климовский мост (2024)</div><p>3,75 км, один из самых протяжённых мостов России.</p><button class="listen-btn small" data-chapter="klimovskiy-most">🎧 Слушать</button></div>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Зелёновка</span><span class="km-badge">1078 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="zelenovka">🎧 Слушать</button>
+    <h4>История</h4><p>Основана в XVIII в., названа по фамилии землевладельца Зеленова.</p>
+    <h4>Факты</h4><p>Здесь новый «Обход Тольятти» смыкается с трассой М5.</p>
+    <h4>Личности</h4><p class="none">Известных личностей не зафиксировано.</p>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Подстепки</span><span class="km-badge">1088 км</span><span class="flag">⚠️ рядом с трассой</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="podstepki">🎧 Слушать</button>
+    <h4>История</h4><p>Курганы бронзового века. Село основано в 1862 г. на землях Саввино-Сторожевского монастыря.</p>
+    <h4>Факты</h4><p>Фактический пригород Тольятти, 16 500+ жителей. Лежит на локальной дороге, не на федеральной трассе.</p>
+    <h4>Личности</h4><p class="none">Известных личностей не зафиксировано.</p>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Ягодное</span><span class="km-badge">1093 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="yagodnoe">🎧 Слушать</button>
+    <h4>История</h4><p>Основано в 1741 г. как русско-калмыцкое поселение, центр казачьего улуса до 1840 г.</p>
+    <h4>Факты</h4><p>Храм Казанской иконы 1744 г. сохранился.</p>
+    <h4>Личности</h4><p class="none">Известных личностей не зафиксировано.</p>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Курумоч</span><span class="km-badge">1128 км</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="kurumoch">🎧 Слушать</button>
+    <h4>История</h4><p>Основано в 1738 г. по приказу Василия Татищева для расселения калмыков.</p>
+    <h4>Факты</h4><p>С 1957 г. рядом строится аэропорт «Курумоч» — главные воздушные ворота Самарской области.</p>
+    <h4>Личности</h4><p>Василий Татищев — историк и географ, основал поселение.</p>
+  </div></details>
+
+  <details class="stop"><summary class="stop-summary"><span class="stop-icon">🏘️</span><span class="stop-title">Самара</span><span class="km-badge">1143 км · финиш</span></summary>
+  <div class="stop-body">
+    <button class="listen-btn" data-chapter="samara">🎧 Слушать</button>
+    <h4>История</h4><p>Основана в 1586 г. воеводой Григорием Засекиным. В 1935–91 гг. — Куйбышев. Осенью 1941 г. — «запасная столица» СССР.</p>
+    <h4>Факты</h4><p>На заводе «Прогресс» под руководством Дмитрия Козлова собирали ракету для полёта Гагарина.</p>
+    <h4>Личности</h4><p>Григорий Засекин — основатель города; Дмитрий Козлов — конструктор ЦСКБ-Прогресс; Дмитрий Шостакович — здесь впервые представил Седьмую симфонию (март 1942).</p>
+    <div class="nested"><div class="n-title">🏛️ «Самара Космическая»</div><p>Монумент ракеты-носителя «Союз» (2001) + музей (2007).</p><button class="listen-btn small" data-chapter="samara-kosmicheskaya">🎧 Слушать</button></div>
+    <div class="nested"><div class="n-title">🏛️ Самарская набережная</div><p>Самая протяжённая речная набережная России, ~4,2 км.</p><button class="listen-btn small" data-chapter="samarskaya-naberezhnaya">🎧 Слушать</button></div>
+    <div class="nested"><div class="n-title">🏛️ Площадь Куйбышева</div><p>Крупнейшая площадь в Европе (17,4 га).</p><button class="listen-btn small" data-chapter="ploschad-kuibysheva">🎧 Слушать</button></div>
+  </div></details>
+</section>
 
 <a class="top-link" href="#top">↑ К началу</a>
 
 <footer>
-  Путеводитель составлен на основе веб-исследования и перекрёстной проверки источников (Википедия, официальные порталы районов, СМИ, реестры объектов культурного наследия). Отмеченные ⚠️ пункты содержат важные оговорки — спорные даты, административные уточнения или недавние события.<br><br>
-  Маршрут: Кисловодск → Минеральные Воды → Благодарный → Элиста → Волгоград → Камышин → Саратов → Хвалынск → Сызрань → Самара
+  Путеводитель составлен на основе веб-исследования и перекрёстной проверки источников (Википедия, официальные порталы, СМИ, реестры объектов культурного наследия). Дистанции приблизительные, от Элисты. Аудио — голос Milena (macOS), сгенерировано локально.<br><br>
+  Маршрут: Элиста → Волгоград → Камышин → Саратов → Хвалынск → Сызрань → Самара
 </footer>
 
 </div>
+
+<!-- global podcast player -->
+<div class="podcast-bar">
+  <div class="track-title" id="track-title">Ничего не выбрано</div>
+  <div class="track-sub" id="track-sub">нажмите «слушать» на любой карточке</div>
+  <div class="bar" id="seek-bar"><div class="fill" id="seek-fill"></div></div>
+  <div class="controls">
+    <button id="btn-prev" title="Предыдущая точка">⏮</button>
+    <button id="btn-back" title="Назад 10 сек">⏪10</button>
+    <button id="btn-play" class="play" title="Play/Pause">▶</button>
+    <button id="btn-next" title="Следующая точка">⏭</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  const order = [
+    "elista","zolotaya-obitel","pagoda-semi-dney","zolotye-vorota","siti-chess","khurul-syakusn-syume","triumfalnaya-arka","zolotoy-vsadnik","memorial-iskhod",
+    "troitskoe-elista",
+    "ketcheneryi","rodniki-ketchenery",
+    "sadovoe","sarpinskie-ozera",
+    "malye-derbety","ozero-barmantsak","ozero-prishib",
+    "tundutovo","plodovitoe","tsatsa",
+    "dubovyi-ovrag","khram-nikity",
+    "bolshie-chapurniki","mechet-makhallya",
+    "volgograd","mamaev-kurgan",
+    "orlovka","erzovka","pichuga",
+    "dubovka","dub-patriarkh","voznesensky-monastyr",
+    "olenye","antipovka",
+    "kamyshin","muzey-maresyeva","gory-ushi-lob","park-scherbakovsky",
+    "ust-gryaznukha",
+    "krasnoarmeysk","muzey-krasnoarmeysk",
+    "luganskoe","sergievsky","ivanovsky",
+    "saratov","naberezhnaya-kosmonavtov","muzey-radischeva",
+    "engels","marks","privolzhskoe",
+    "balakovo","troitsky-khram-balakovo",
+    "shikhany",
+    "volsk","gostiny-ryad-volsk",
+    "khvalynsk","nacpark-khvalynsky",
+    "vozrozhdenie","cherny-zaton",
+    "syzran","syzran-kreml","kazanskiy-sobor",
+    "troitskoe","zhigulevsk","zhigulevskie-gory","klimovskiy-most",
+    "zelenovka","podstepki","yagodnoe","kurumoch",
+    "samara","samara-kosmicheskaya","samarskaya-naberezhnaya","ploschad-kuibysheva"
+  ];
+
+  const titles = {};
+  document.querySelectorAll('.listen-btn').forEach(b => {
+    const nested = b.closest('.nested');
+    const title = nested ? nested.querySelector('.n-title').textContent.trim() : b.closest('.stop').querySelector('.stop-title').textContent.trim();
+    titles[b.dataset.chapter] = title;
+  });
+
+  const chapters = order.filter(key => titles[key]).map(key => ({ key, title: titles[key], file: `audio/${key}.m4a` }));
+
+  const audio = new Audio();
+  let currentIdx = -1;
+
+  const els = {
+    title: document.getElementById('track-title'),
+    sub: document.getElementById('track-sub'),
+    fill: document.getElementById('seek-fill'),
+    bar: document.getElementById('seek-bar'),
+    play: document.getElementById('btn-play'),
+    prev: document.getElementById('btn-prev'),
+    next: document.getElementById('btn-next'),
+    back: document.getElementById('btn-back'),
+  };
+
+  function setActiveButtons() {
+    document.querySelectorAll('.listen-btn').forEach(b => {
+      b.classList.toggle('playing', chapters[currentIdx] && b.dataset.chapter === chapters[currentIdx].key);
+    });
+  }
+
+  function loadChapter(idx, autoplay = true) {
+    if (idx < 0 || idx >= chapters.length) return;
+    currentIdx = idx;
+    const ch = chapters[idx];
+    audio.src = ch.file;
+    els.title.textContent = ch.title;
+    els.sub.textContent = `${idx + 1} / ${chapters.length}`;
+    els.fill.style.width = '0%';
+    setActiveButtons();
+    if (autoplay) audio.play();
+    els.play.textContent = autoplay ? '⏸' : '▶';
+    els.prev.disabled = idx === 0;
+    els.next.disabled = idx === chapters.length - 1;
+  }
+
+  audio.addEventListener('timeupdate', () => {
+    if (audio.duration) els.fill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+  });
+  audio.addEventListener('ended', () => {
+    if (currentIdx < chapters.length - 1) loadChapter(currentIdx + 1, true);
+    else els.play.textContent = '▶';
+  });
+
+  els.play.addEventListener('click', () => {
+    if (currentIdx === -1) { loadChapter(0, true); return; }
+    if (audio.paused) { audio.play(); els.play.textContent = '⏸'; }
+    else { audio.pause(); els.play.textContent = '▶'; }
+  });
+  els.prev.addEventListener('click', () => loadChapter(currentIdx - 1, true));
+  els.next.addEventListener('click', () => loadChapter(currentIdx + 1, true));
+  els.back.addEventListener('click', () => { audio.currentTime = Math.max(0, audio.currentTime - 10); });
+  els.bar.addEventListener('click', (e) => {
+    if (!audio.duration) return;
+    const rect = els.bar.getBoundingClientRect();
+    const ratio = (e.clientX - rect.left) / rect.width;
+    audio.currentTime = ratio * audio.duration;
+  });
+
+  document.querySelectorAll('.listen-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = chapters.findIndex(c => c.key === btn.dataset.chapter);
+      loadChapter(idx, true);
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
