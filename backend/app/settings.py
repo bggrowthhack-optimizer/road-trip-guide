@@ -15,7 +15,12 @@ class Settings(BaseSettings):
 
     # Routing / geo
     routing_provider: str = "osrm"
+    osrm_base_url: str = "https://router.project-osrm.org"
     yandex_maps_api_key: str = ""
+    http_user_agent: str = "Roadcast/0.1 (contact: sattarovsky@proton.me)"
+    http_timeout_seconds: float = 15.0
+    route_sample_step_km: float = 5.0
+    wikipedia_geosearch_radius_m: int = 7000
 
     # TTS
     tts_provider: str = "openai"

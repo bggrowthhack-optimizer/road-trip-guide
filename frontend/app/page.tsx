@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { createJourney } from "@/lib/api";
+import { useEffect, useRef, useState } from "react";
+import { createJourney, getJourney } from "@/lib/api";
 import type { JourneyJob, TransportMode } from "@/types/journey";
 
 const MODES: { value: TransportMode; label: string; enabled: boolean }[] = [
@@ -11,6 +11,15 @@ const MODES: { value: TransportMode; label: string; enabled: boolean }[] = [
   { value: "flight", label: "Самолёт", enabled: false },
 ];
 
+const STATUS_LABELS: Record<string, string> = {
+  queued: "В очереди…",
+  discovering_route: "Строим маршрут и ищем точки…",
+  awaiting_manual_summary: "Точки найдены, ждём резюме…",
+  generating_content: "Собираем рассказы…",
+  ready: "Готово",
+  failed: "Не получилось",
+};
+
 export default function Home() {
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
@@ -18,20 +27,50 @@ export default function Home() {
   const [job, setJob] = useState<JourneyJob | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (pollRef.current) clearInterval(pollRef.current);
+    };
+  }, []);
+
+  function startPolling(id: string) {
+    if (pollRef.current) clearInterval(pollRef.current);
+    pollRef.current = setInterval(async () => {
+      try {
+        const updated = await getJourney(id);
+        setJob(updated);
+        // awaiting_manual_summary — не финальное состояние: резюме могут
+        // прийти позже (вручную через /summaries), поэтому продолжаем
+        // поллинг и здесь, останавливаемся только на ready/failed.
+        if (["ready", "failed"].includes(updated.status)) {
+          if (pollRef.current) clearInterval(pollRef.current);
+        }
+      } catch (err) {
+        if (pollRef.current) clearInterval(pollRef.current);
+        setError(err instanceof Error ? err.message : "Ошибка при опросе статуса");
+      }
+    }, 2000);
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
+    setJob(null);
     setLoading(true);
     try {
       const result = await createJourney({ origin, destination, waypoints: [], mode });
       setJob(result);
+      startPolling(result.id);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Что-то пошло не так");
     } finally {
       setLoading(false);
     }
   }
+
+  const isPolling = job && ["queued", "discovering_route"].includes(job.status);
 
   return (
     <div className="flex min-h-screen flex-col items-center bg-zinc-50 px-6 py-16 dark:bg-black">
@@ -80,10 +119,10 @@ export default function Home() {
 
           <button
             type="submit"
-            disabled={loading}
+            disabled={loading || !!isPolling}
             className="rounded-lg bg-black px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-50 dark:bg-white dark:text-black"
           >
-            {loading ? "Собираем..." : "Собрать историю пути"}
+            {loading || isPolling ? "Собираем..." : "Собрать историю пути"}
           </button>
         </form>
 
@@ -92,14 +131,47 @@ export default function Home() {
         )}
 
         {job && (
-          <div className="mt-6 rounded-lg border border-zinc-200 p-4 text-sm dark:border-zinc-800">
-            <p className="font-medium text-black dark:text-zinc-50">
-              Job создан: {job.id}
+          <div className="mt-6">
+            <p className="mb-4 text-sm font-medium text-zinc-500 dark:text-zinc-400">
+              {STATUS_LABELS[job.status] ?? job.status}
             </p>
-            <p className="text-zinc-500">Статус: {job.status}</p>
-            <p className="mt-2 text-zinc-400">
-              Генерация ещё не реализована — это только каркас запроса/ответа.
-            </p>
+
+            {job.status === "failed" && job.error && (
+              <p className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700 dark:border-red-900 dark:bg-red-950 dark:text-red-300">
+                {job.error}
+              </p>
+            )}
+
+            {job.points && job.points.length > 0 && (
+              <ul className="flex flex-col gap-3">
+                {job.points.map((point) => (
+                  <li
+                    key={point.pageid}
+                    className="rounded-lg border border-zinc-200 p-4 text-sm dark:border-zinc-800"
+                  >
+                    <div className="mb-1 flex items-center justify-between gap-2">
+                      <span className="font-medium text-black dark:text-zinc-50">
+                        {point.title}
+                      </span>
+                      <span className="shrink-0 rounded-full bg-zinc-900 px-2 py-0.5 text-xs font-semibold text-white dark:bg-white dark:text-black">
+                        {point.distance_km} км
+                      </span>
+                    </div>
+                    <p className="text-zinc-600 dark:text-zinc-400">
+                      {point.summary ?? (point.wiki_extract || "Текст ещё не готов.")}
+                    </p>
+                    <a
+                      href={point.wiki_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 inline-block text-xs text-zinc-400 underline"
+                    >
+                      Wikipedia
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         )}
       </main>
